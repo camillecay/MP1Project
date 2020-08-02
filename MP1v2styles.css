@@ -45,46 +45,12 @@ html{
 
 
 
-/* LOGIN CSS */
+/* -----------------------------------------------LOGIN CSS -------------------------------------------*/
 html,body{
     height: 100%;
   
 }
-@font-face{
-    /* used in title page */
-    src: url(JosefinSans/JosefinSansBold-OVA7o.ttf);
-    font-family: JosefinBold;
-}
 
-@font-face{
-    /* used in navi bar */
-    src: url(JosefinSans/JosefinSansLight-ZVEll.ttf);
-    font-family: JosefinLight;
-}
-@font-face{
-    /* used in page headers */
-    src: url(JosefinSans/JosefinSansRegular-x3LYV.ttf);
-    font-family: JosefinReg;
-}
-
-
-@font-face{
-    /* used in main info per section */
-    src: url(proxima_ssv/ProximaNova-Regular.otf);
-    font-family: ProximaReg;
-}
-
-@font-face{
-    /* used in for smaller info */
-    src: url(proxima_ssv/ProximaNovaAltLight.otf);
-    font-family: ProximaLight;
-}
-
-@font-face{
-    /* used in for smaller info */
-    src: url(proxima_ssv/ProximaNovaBold.otf);
-    font-family: ProximaNovaBold;
-}
 
 
 .logincontainer{
@@ -99,8 +65,8 @@ html,body{
 
 .loginarea{
     background-color:#eedbc7;
-    height: 500px;
-    width: 450px;
+    height: 450px;
+    width: 400px;
     border: 1px solid rgb(240, 235, 235);
     border-radius: 10px;
     box-shadow: 1px 1px 2px rgb(206, 177, 154);
@@ -120,12 +86,17 @@ html,body{
 
 .logininputs{
     grid-row: 2/2;
+    margin-top: -25px;
 
 }
 
-input{
-  
-  width: 350px;
+input::placeholder{
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
+#email,#password{
+  width: 280px;
   height: 30px;
   border: 1px transparent; 
   border-bottom: 1px translucent gray;
@@ -137,38 +108,35 @@ input{
   font-size: 16px;
   margin: 13px;
   padding-top: 10px;
+  padding-left: 10px;
   font-family: ProximaReg;
-
-}
-
-input::placeholder{
-    padding-left: 10px;
 }
 
 
-
-.loginbuttton{
-   margin-bottom: 10px;
-    
-}
 #submitlogin{
     font-family:JosefinBold;
     position: relative;
-    left: 155px;
-    top: 0px;
+    left: 130px;
+    top: 80px;
     height: 30px;
     width: 130px;
     font-size: 20px;
+    
 
 }
 
-/* --------------END OF LOGIN */
-
+/* ----------------------------------------------- END OF LOGIN CSS -------------------------------------------*/
+/* ------------------------------------------------START OF MAIN -------------------------------------------- */
 .container{
     height: 100%;
     width: 100%;
+
+
 }
-/* FRONT PAGE */
+
+
+
+/* ------------------------------- FRONT PAGE --------------------------------------- */
 .frontpage{
     background-color: #DDBEA9;
     height: 100%;
@@ -199,7 +167,7 @@ input::placeholder{
     color: rgb(105, 66, 45);
     
 }
-/* NAVIGATION BAR */
+/* ------------------------------------------------------ NAVIGATION BAR ------------------------------------------------*/
 .navibar{
     position:fixed;
     top: 30px;
@@ -210,14 +178,14 @@ input::placeholder{
     
  
 }
-.navibar span:hover{
-   
-    cursor: pointer;
-}
+    .navibar span:hover{
+        cursor: pointer;
+    }
 
-a{
-    text-decoration: none;
-}
+    a{
+        text-decoration: none;
+        color: rgb(70, 68, 68);
+    }
 
     #educ:hover{
         background-color: #EDDCD2;
@@ -240,8 +208,19 @@ a{
     a:visited:hover{
         color: rgb(19, 19, 19);
     }
-
+/* ------------------------------------------------------ NAVIGATION BAR ------------------------------------------------*/
 /* COLLAPSE ADD AREA */
+
+input{
+    
+    height: 35px;
+    width: 80%;
+    font-family:ProximaReg;
+    margin: 10px;
+    margin-left: 15px;
+    margin-top: 10px;
+    
+}
 
 /* EDUC */
 .educsideBar{
@@ -291,16 +270,7 @@ a{
    
     
 }
-input{
-    
-    height: 35px;
-    width: 80%;
-    font-family:ProximaReg;
-    margin: 10px;
-    margin-left: 15px;
-    margin-top: 10px;
-    
-}
+
 
 .educbutton{
     grid: 3/3;
@@ -361,7 +331,7 @@ input{
 .orgsidebarContents{
     display: grid;
     grid-template-rows: 1fr 3fr;
-    font-size: 45px;
+    font-size: 40px;
     position:relative;
     margin-left: 60px;
     padding-top: 60px;
@@ -374,16 +344,7 @@ input{
    
     
 }
-input{
-    
-    height: 35px;
-    width: 80%;
-    font-family:ProximaReg;
-    margin: 10px;
-    margin-left: 15px;
-    margin-top: 10px;
-    
-}
+
 
 .orgbutton{
     grid: 3/3;
@@ -392,9 +353,6 @@ input{
     font-size: 20px;
     margin-top: 20px;
     margin-left: 135px;
-    
-
- 
 }
 
 .orgcloseNav{
@@ -405,8 +363,7 @@ input{
     position: absolute;
     top: 10px;
     left: -35px;
-    color: gray;
-    
+    color: gray; 
 }
 
 /* work side bar */
@@ -457,16 +414,7 @@ input{
    
     
 }
-input{
-    
-    height: 35px;
-    width: 80%;
-    font-family:ProximaReg;
-    margin: 10px;
-    margin-left: 15px;
-    margin-top: 10px;
-    
-}
+
 
 .workbutton{
     grid: 3/3;
@@ -495,7 +443,7 @@ input{
 /* intro side bar */
 
 .introsideBar{
-    height: 55%;
+    height: 30%;
     width: 0;
     position: fixed;
     z-index: 1;
@@ -514,7 +462,7 @@ input{
     height: 60px;
     width: 60px;
     position: absolute;
-    top:50px;
+    top:100px;
     right: 70px;
 }
 
@@ -538,19 +486,12 @@ input{
 .introinputs{
     grid-row:2/3;
     margin-top: 10px;
-   
     
 }
-input{
-    
-    height: 35px;
-    width: 80%;
-    font-family:ProximaReg;
-    margin: 10px;
-    margin-left: 15px;
-    margin-top: 10px;
-    
-}
+
+
+
+
 
 .introbutton{
     grid: 3/3;
@@ -629,16 +570,7 @@ input{
    
     
 }
-input{
-    
-    height: 35px;
-    width: 80%;
-    font-family:ProximaReg;
-    margin: 10px;
-    margin-left: 15px;
-    margin-top: 10px;
-    
-}
+
 
 .linkbutton{
     grid: 3/3;
@@ -667,9 +599,16 @@ input{
 /* EDUC PAGE */
 .educpage{
     background-color: #EDDCD2;
+    min-height: 100%;
     height: 100%;
     width: auto;
     position: relative;
+
+    /* html{
+        width:100%;
+     height:auto;
+     min-height:100%
+    } */
 }
 
 
@@ -683,7 +622,6 @@ input{
 
 
 }
-
 
 
 .educData{
@@ -775,6 +713,7 @@ input{
 /* ORG PAGE */
 .orgpage{
     background-color: #B7B7A4;
+    min-height: 100%;
     height: 100%;
     width: auto;
     position: relative;
@@ -856,12 +795,13 @@ input{
 .workpage{
     background-color: #F0EFEB;
     /* background-color: black; */
-    height: 100%;
+    min-height: 100%;
+    height: auto;
     width: auto;
     position: relative;
+    
 }
 
-/*  */
 .workheader{
     font-family:JosefinReg;
     font-size: 45px;
@@ -875,7 +815,7 @@ input{
 
 .workData{
     display: inline-block;
-    width: 20%;
+    width: 30%;
     position: relative;
     padding: 30px;
     padding-right:50px;
@@ -939,6 +879,7 @@ input{
 .otherpage{
     background-color: #CB997E;
     /* background-color: black; */
+    min-height: 100%;
     height: 100%;
     width: auto;
     position: relative;
@@ -954,21 +895,25 @@ input{
     bottom: 15%;
     padding-left: 140px;
     padding-bottom: 80px;
-    
-
 }
 
 
+.linkedinicon, .githubicon, .twittericon{
+    height: 30px;
+    width: 30px; 
+}
+
 .introContent{
     height: 40%;
-    width: 95%;
-    font-family: JosefinBold;
-    font-size: 70px;
+    width: 50%;
+    font-family: JosefinReg;
+    font-size: 50px;
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding-left: 100px;
+    padding-left: 130px;
    
 }
 

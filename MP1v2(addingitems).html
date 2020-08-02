@@ -27,26 +27,8 @@
 
         <div class="container" id="container">
 
-            <!-- LOGIN MODAL -->
-            <!-- <div id="modal" class="modal">
-                <div class="modalcontent">
-                  <h4>Login</h4><br />
-                  <form id="loginForm">
-                    <div class="inputs">
-                      <input type="email" id="email" required />
-                      <label for="email">Email address</label>
-                    </div>
-                    <div class="inputs">
-                      <input type="password" id="password" required />
-                      <label for="password">Your password</label>
-                    </div>
-                    <button class="btn yellow darken-2 z-depth-0">Login</button>
-                  </form>
-                </div>
-              </div> -->
-
             <nav class="navibar" id="navibar"> 
-                <di id="educ"><a href="#educpage" SameSite=None; Secure>Education</a></di>
+                <span id="educ"><a href="#educpage" SameSite=None; Secure>Education</a></span>
                 <span id="org"><a href="#orgpage" SameSite=None; Secure>Organizations</a></span>
                 <span id="work"><a href="#workpage" SameSite=None; Secure>Works</a></span>
                 <span id="other"><a href="#otherpage" SameSite=None; Secure>Contact</a></span>
@@ -82,7 +64,7 @@
                         </div>
                     </div>
                     <!-- what to clikc for bar to open -->
-                    <button class="educopenNav"  onclick="educopenNav()">+</button>
+                    <button type="submit"class="educopenNav"  onclick="educopenNav()">+</button>
                     <table class="educContent" id ="educContent"></table>
             </h1>
 
@@ -102,7 +84,7 @@
                             <input type="text" name="orgAddposition"placeholder="Position"/>      
                             <input type="text"  name="orgAddstart"placeholder="Year Started"/>
                             <input type="text" name="orgAddend"placeholder="Year Ended"/>   
-                            <button class ="orgbutton">Add</button> 
+                            <button type="submit"class ="orgbutton">Add</button> 
                         </form>
                     </div>
                 </div>
@@ -123,7 +105,7 @@
                             <input type="text" name="workAddlab"placeholder="Lab"/>      
                             <input type="text"  name="workAddstart"placeholder="Year Started"/>
                             <input type="text" name="workAddend"placeholder="Year Ended"/>   
-                            <button class ="workbutton">Add</button> 
+                            <button type="submit"class ="workbutton">Add</button> 
                         </form>
                     </div>
                 </div>
@@ -141,8 +123,8 @@
                         Input New Intro
                         <button class="introcloseNav" onclick="introcloseNav()">x</button>
                             <form class ="introinputs" id="editIntroForm">
-                                <input type="text"  name="introEditfact"placeholder="Anything you'd like to let us know?"/>
-                                <button class ="introbutton">Update</button> 
+                                <input type="text"  class="introEditFact" name="introEditfact"placeholder="Anything you'd like to let us know?"/>
+                                <button type="submit"class ="introbutton">Update</button> 
                             </form>
                     </div>
                 </div>
@@ -154,15 +136,23 @@
                  <div id="linksideBar" class="linksideBar">
                     <div class="linksidebarContents">
                         Update Links
+
                         <button class="linkcloseNav" onclick="linkcloseNav()">x</button> 
                             <form class ="linkinputs" id="editLinkForm">
                                 <input type="text"  name="linkEdit"placeholder="New Link"/>
-                            <button class ="introbutton">Update</button> 
+                            <button type="submit"class ="introbutton">Update</button> 
                             </form>
                     </div>
                 </div>
                      <!-- </div><img src="drawnpencil.png" class="linkopenNav"  onclick="linkopenNav()"></img>-->
                      <button class="linkopenNav"  onclick="linkopenNav()">+</button> 
+                     <div class="icons">
+                        <img src="linkedinicon.png" class="linkedinicon" onclick="goLinkedin()">
+                        <img src="twittericon.png" class="twittericon"  onclick="goTwitter()">
+                        <img src="githubicon.png" class="githubicon" onclick="goGithub()">
+                        
+                     </div>   
+                     
                     <table class="linkContent" id="linkContent"></table>
                  
             </h4>
