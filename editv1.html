@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="MP1v2styles.css">
+        <link rel="icon" href="letterC.png" type="image/png" sizes="16x16">
+    </head>
+    <body>
+        <!-- EVERYTHING IS SINGULAR EXCEPT FOR COLLECTIONS AND DOCUMENT -->
+        <a href="letterC.png" target="_blank"></a>
+        <div class="container">
+
+
+
+
+            <!-- LOGIN MODAL -->
+            <!-- <div id="modal" class="modal">
+                <div class="modalcontent">
+                  <h4>Login</h4><br />
+                  <form id="loginForm">
+                    <div class="inputs">
+                      <input type="email" id="email" required />
+                      <label for="email">Email address</label>
+                    </div>
+                    <div class="inputs">
+                      <input type="password" id="password" required />
+                      <label for="password">Your password</label>
+                    </div>
+                    <button class="btn yellow darken-2 z-depth-0">Login</button>
+                  </form>
+                </div>
+              </div> -->
+
+            <nav class="navibar" id="navibar"> 
+                <di id="educ"><a href="#educpage" SameSite=None; Secure>Education</a></di>
+                <span id="org"><a href="#orgpage" SameSite=None; Secure>Organizations</a></span>
+                <span id="work"><a href="#workpage" SameSite=None; Secure>Works</a></span>
+                <span id="other"><a href="#otherpage" SameSite=None; Secure>Contact</a></span>
+            </nav>
+            <div class="letterC" id="letterC">
+                
+                <a href="#frontpage"><img src="letterC.png" class="letterC"></a>
+            </div>
+            <div class="frontpage" id="frontpage" SameSite=None; Secure>
+                <div class="beforeName"> Hi! I'm</div>
+                <span class="name">CAMILLE CAY</span>
+                
+            </div>
+        
+            <!-- h1-h5 for spaces in between pages -->
+            <!-- div for consistent -->
+            <h1 class="educpage" id="educpage" SameSite=None; Secure >
+                <div class="educheader">
+                    Education </div>
+                    <!-- inside bar -->
+
+                    <div id="educsideBar" class="educsideBar">
+                        <div class="educsidebarContents">
+                            Input Education Details
+                            <button class="educcloseNav" onclick="educcloseNav()">x</button>  
+                            <form class ="educinputs" id="addEducForm">
+                                <input type="text"  name="educAddschool"placeholder="Name of School"/>
+                                <input type="text" name="educAdddegree"placeholder="Name Of Degree"/>      
+                                <input type="text"  name="educAddstart"placeholder="Year Started"/>
+                                <input type="text" name="educAddend"placeholder="Year Ended"/>   
+                            <button class ="educbutton">Add</button> 
+                            </form>
+                        </div>
+                    </div>
+                    <!-- what to clikc for bar to open -->
+                    <button class="educopenNav"  onclick="educopenNav()">+</button>
+                    <table class="educContent" id ="educContent"></table>
+            </h1>
+
+
+
+            <h2 class="orgpage" id="orgpage" SameSite=None; Secure>
+                <div class="orgheader">
+                    Organizations 
+                </div>
+
+                <div id="orgsideBar" class="orgsideBar">
+                    <div class="orgsidebarContents">
+                        Input Organization Details
+                        <button class="orgcloseNav" onclick="orgcloseNav()">x</button>
+                        <form class ="orginputs" id="addOrgForm">
+                            <input type="text"  name="orgAddname"placeholder="Name of Organization"/>
+                            <input type="text" name="orgAddposition"placeholder="Position"/>      
+                            <input type="text"  name="orgAddstart"placeholder="Year Started"/>
+                            <input type="text" name="orgAddend"placeholder="Year Ended"/>   
+                            <button class ="orgbutton">Add</button> 
+                        </form>
+                    </div>
+                </div>
+                <button class="orgopenNav"  onclick="orgopenNav()">+</button>
+                    <table class="orgContent" id ="orgContent"></table> 
+            </h2>
+
+            <h3 class="workpage" id="workpage" SameSite=None; Secure>
+                <div class="workheader">
+                    Works 
+                </div>
+                <div id="worksideBar" class="worksideBar">
+                    <div class="worksidebarContents">
+                        Input Work Details
+                        <button class="workcloseNav" onclick="workcloseNav()">x</button>
+                        <form class ="workinputs" id="addWorkForm">
+                            <input type="text"  name="workAddname"placeholder="Name of Work"/>
+                            <input type="text" name="workAddlab"placeholder="Lab"/>      
+                            <input type="text"  name="workAddstart"placeholder="Year Started"/>
+                            <input type="text" name="workAddend"placeholder="Year Ended"/>   
+                            <button class ="workbutton">Add</button> 
+                        </form>
+                    </div>
+                </div>
+                <button class="workopenNav"  onclick="workopenNav()">+</button>
+                    <table class="workContent" id="workContent"></table>
+            </h3>
+
+            <h4 class="otherpage" id="otherpage" SameSite=None; Secure>
+                <div class="otherFooter">
+                    Contact Me 
+                </div>
+                 
+                    <form class ="introInputs" id="addIntroForm">
+                        <input type="text"  name="introAddfact"placeholder="Fact"/>
+    
+                        <button class ="button">Add</button> 
+                    </form>
+                    <div class = "introContent" id="introContent"></div>
+                    <!-- links -->
+                    <form class ="linkInputs" id="addLinkForm">
+                        <input type="text"  name="linkAddsocmed"placeholder="Social Media"/>
+                        <button class ="button">Add</button> 
+                    </form>
+                    <table class="linkContent" id="linkContent"></table>
+            </h4>
+
+         
+        </div>
+            <!-- gets core functions of firebase -->
+              <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+            <!-- references the firestore service -->
+              <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+            <!-- references authentications -->
+              <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+    
+    
+          <script>
+            var firebaseConfig = {
+                apiKey: "AIzaSyC6CbJKFz2DRyvYoPrGafNaunl-zkaPdqE",
+                authDomain: "ccapdev-resume1.firebaseapp.com",
+                databaseURL: "https://ccapdev-resume1.firebaseio.com",
+                projectId: "ccapdev-resume1",
+                storageBucket: "ccapdev-resume1.appspot.com",
+                messagingSenderId: "459032712935",
+                appId: "1:459032712935:web:5892d2a5cd075f5a5a3442"
+            };
+            // Initialize the connection to Firebase backend
+            var defaultProject = firebase.initializeApp(firebaseConfig);
+            
+            // make auth and firebase references
+            var auth = firebase.auth();
+
+            //whenever you interact with the database, we use this variable (db)
+            var db = firebase.firestore(); 
+        </script>
+        <script src="MP1v2js.js"></script>
+
+      
+
+    </body>
+</html>

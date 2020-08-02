@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+
+            html,body{
+                height: 100%;
+              
+            }
+            @font-face{
+                /* used in title page */
+                src: url(JosefinSans/JosefinSansBold-OVA7o.ttf);
+                font-family: JosefinBold;
+            }
+
+            @font-face{
+                /* used in navi bar */
+                src: url(JosefinSans/JosefinSansLight-ZVEll.ttf);
+                font-family: JosefinLight;
+            }
+            @font-face{
+                /* used in page headers */
+                src: url(JosefinSans/JosefinSansRegular-x3LYV.ttf);
+                font-family: JosefinReg;
+            }
+
+
+            @font-face{
+                /* used in main info per section */
+                src: url(proxima_ssv/ProximaNova-Regular.otf);
+                font-family: ProximaReg;
+            }
+
+            @font-face{
+                /* used in for smaller info */
+                src: url(proxima_ssv/ProximaNovaAltLight.otf);
+                font-family: ProximaLight;
+            }
+
+            @font-face{
+                /* used in for smaller info */
+                src: url(proxima_ssv/ProximaNovaBold.otf);
+                font-family: ProximaNovaBold;
+            }
+
+            
+            .logincontainer{
+                height: 100%;
+                width: 100%;
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                background-color: rgb(245, 241, 241);
+                
+            }
+
+            .loginarea{
+                background-color:#eedbc7;
+                height: 500px;
+                width: 450px;
+                border: 1px solid rgb(240, 235, 235);
+                border-radius: 10px;
+                box-shadow: 1px 1px 2px rgb(206, 177, 154);
+                display: grid;
+                grid-template-rows: 1fr 2fr;
+            }
+
+            .loginheader{
+                grid-row:1/2;
+                font-family: JosefinBold;
+                display: flex;
+                justify-content: center;
+                padding-top: 90px;
+                
+                font-size: 50px;
+            }
+
+            .inputs{
+                grid-row: 2/2;
+     
+            }
+
+            input{
+              
+              width: 350px;
+              height: 30px;
+              border: 1px transparent; 
+              border-bottom: 1px translucent gray;
+              border-radius: 10px;
+              background-color:rgb(252, 243, 236);
+              position: relative;
+              top: 50px;
+              left: 40px;
+              font-size: 16px;
+              margin: 13px;
+              padding-top: 10px;
+              font-family: ProximaReg;
+            
+            }
+
+            input::placeholder{
+                padding-left: 10px;
+            }
+
+           
+
+            .buttton{
+               margin-bottom: 10px;
+                
+            }
+            #submitlogin{
+                font-family:JosefinBold;
+                position: relative;
+                left: 155px;
+                top: 0px;
+                height: 30px;
+                width: 130px;
+                font-size: 20px;
+
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="container" id="container">
+            <div class="loginarea">
+                <div class="loginheader">
+                    USER LOGIN
+                </div>
+                <form class ="inputs" id="loginForm">
+                    <input type="text"  name="email" id="email"placeholder="Enter Email Address"/>
+                    <input type="password" name="password"id="password"placeholder="Enter Password"/>      
+                </form>
+                <div class="button">
+                    <!-- fix when you get to github -->
+                    <button type="submit" id="submitlogin">Login</button> 
+
+                   
+                </div>
+                
+            </div>
+        </div>
+    </body>
+
+  <!-- gets core functions of firebase -->
+  <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+  <!-- references the firestore service -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+  <!-- references authentications -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+
+
+        <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyC6CbJKFz2DRyvYoPrGafNaunl-zkaPdqE",
+            authDomain: "ccapdev-resume1.firebaseapp.com",
+            databaseURL: "https://ccapdev-resume1.firebaseio.com",
+            projectId: "ccapdev-resume1",
+            storageBucket: "ccapdev-resume1.appspot.com",
+            messagingSenderId: "459032712935",
+            appId: "1:459032712935:web:5892d2a5cd075f5a5a3442"
+        };
+        // Initialize the connection to Firebase backend
+        var defaultProject = firebase.initializeApp(firebaseConfig);
+        
+        // make auth and firebase references
+        var auth = firebase.auth();
+
+        //whenever you interact with the database, we use this variable (db)
+        var db = firebase.firestore(); 
+        </script>
+        <script>
+
+        var loginForm = document.querySelector('#loginForm');
+            loginForm.addEventListener('submit',(event) =>{
+                event.preventDefault();
+
+                //get user addIntroForm
+                var email = loginForm['email'].value;
+                var password = loginForm['password'].value;
+
+                auth.signInWithEmailAndPassword(email, password).then(cred =>{
+                     console.log(cred.user);
+
+                     var loginarea = document.querySelector('#container')
+                     M.Modal.getInstance(modal).close();
+                    loginForm.reset();
+                }
+
+
+            )})
+
+
+
+
+        </script>
+
+    </body>
+</html>

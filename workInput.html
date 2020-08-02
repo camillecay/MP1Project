@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+
+            html,body{
+                height: 100%;
+               
+            }
+            @font-face{
+                /* used in title page */
+                src: url(JosefinSans/JosefinSansBold-OVA7o.ttf);
+                font-family: JosefinBold;
+            }
+
+            @font-face{
+                /* used in navi bar */
+                src: url(JosefinSans/JosefinSansLight-ZVEll.ttf);
+                font-family: JosefinLight;
+            }
+            @font-face{
+                /* used in page headers */
+                src: url(JosefinSans/JosefinSansRegular-x3LYV.ttf);
+                font-family: JosefinReg;
+            }
+
+
+            @font-face{
+                /* used in main info per section */
+                src: url(proxima_ssv/ProximaNova-Regular.otf);
+                font-family: ProximaReg;
+            }
+
+            @font-face{
+                /* used in for smaller info */
+                src: url(proxima_ssv/ProximaNovaAltLight.otf);
+                font-family: ProximaLight;
+            }
+
+            @font-face{
+                /* used in for smaller info */
+                src: url(proxima_ssv/ProximaNovaBold.otf);
+                font-family: ProximaNovaBold;
+            }
+
+            
+            .container{
+                height: 100%;
+                width: 100%;
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #F0EFEB;
+                
+            }
+
+            .workInputArea{
+                background-color:rgb(250, 250, 248);
+                height: 530px;
+                width: 450px;
+                border: 1px solid rgb(233, 227, 227);
+                border-radius: 10px;
+                box-shadow: 1px 1px 2px rgb(206, 177, 154);
+                display: grid;
+                grid-template-rows: 1fr 2fr 1fr;
+            }
+
+            .workInputHeader{
+                grid-row:1/2;
+                font-family: JosefinBold;
+                font-size: 50px;
+                padding-left: 30px;
+                padding-top: 30px;
+                align-items: center;
+            }
+
+            .inputs{
+                grid-row: 2/2;
+            }
+
+          input{
+              width: 350px;
+              height: 30px;
+              border: 1px transparent; 
+              border-bottom: 1px translucent gray;
+              border-radius: 10px;
+              background-color:org;
+              position: relative;
+              top: 10px;
+              left: 40px;
+              font-size: 16px;
+              margin: 13px;
+              padding-top: 7px;
+              font-family: ProximaReg;
+              
+          }
+
+          input::placeholder{
+              padding-left: 5px;
+          }
+
+            .buttton{
+                grid-row: 3/3;
+            }
+
+            #submitWorkInput{
+                font-family:JosefinBold;
+                position: relative;
+                left: 160px;
+                top: 30px;
+                height: 40px;
+                width: 130px;
+                font-size: 20px;
+                border-radius:10px;
+                border: .1px solid lightgrey;
+
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="workInputArea">
+                <div class="workInputHeader">
+                    Input Work Details
+                </div>
+                <form class ="inputs">
+                    <input type="text"  id="workAddname"placeholder="Lab"/>
+                    <input type="text" id="workAddposition"placeholder="Name Of Work"/>      
+                    <input type="text"  id="workAddstart"placeholder="Year Started"/>
+                    <input type="text" id="workAddend"placeholder="Year Ended"/>      
+                </form>
+                
+                </form>
+                <div class="button">
+                    <!-- fix when you get to github -->
+                    <button type="submit" id="submitWorkInput">Add</button> 
+
+                   
+                </div>
+                
+        </div>
+
+    </body>
+</html>

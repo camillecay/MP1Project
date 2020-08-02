@@ -1,0 +1,450 @@
+
+html,body{
+    height: 100%
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+@font-face{
+    /* used in title page */
+    src: url(JosefinSans/JosefinSansBold-OVA7o.ttf);
+    font-family: JosefinBold;
+}
+
+@font-face{
+    /* used in navi bar */
+    src: url(JosefinSans/JosefinSansLight-ZVEll.ttf);
+    font-family: JosefinLight;
+}
+@font-face{
+    /* used in page headers */
+    src: url(JosefinSans/JosefinSansRegular-x3LYV.ttf);
+    font-family: JosefinReg;
+}
+
+
+@font-face{
+    /* used in main info per section */
+    src: url(proxima_ssv/ProximaNova-Regular.otf);
+    font-family: ProximaReg;
+}
+
+@font-face{
+    /* used in for smaller info */
+    src: url(proxima_ssv/ProximaNovaAltLight.otf);
+    font-family: ProximaLight;
+}
+
+@font-face{
+    /* used in for smaller info */
+    src: url(proxima_ssv/ProximaNovaBold.otf);
+    font-family: ProximaNovaBold;
+}
+
+
+
+.container{
+    height: 100%;
+    width: 100%;
+}
+/* FRONT PAGE */
+.frontpage{
+    background-color: #DDBEA9;
+    height: 100%;
+    width: auto;;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.name{
+    font-size:100px;
+    font-family: JosefinBold;
+    color: rgb(105, 66, 45);
+    
+}
+/* NAVIGATION BAR */
+.navibar{
+    position:fixed;
+    top: 30px;
+    right: 50px;
+    z-index: 10;
+    /* kahit mag scroll ka magsstay pa rin siya */
+    /* color: #CB997E;*/
+    font-family:JosefinLight;
+    font-size: 40px;
+    
+ 
+}
+.navibar span:hover{
+   
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+}
+
+    #educ:hover{
+        background-color: #EDDCD2;
+    }
+    #org:hover{
+        background-color: #B7B7A4;
+    }
+    #work:hover{
+        background-color: #F0EFEB;
+    }
+    #other:hover{
+        background-color: #CB997E;
+    }
+
+    a:visited{
+        /* color: rgb(105, 66, 45); */
+        color: rgb(70, 68, 68);
+    }
+    a:visited:hover{
+        color: rgb(19, 19, 19);
+    }
+
+/* --------------------------------------------------------------START------------------------------------------------------------- */
+/* EDUC PAGE */
+.educpage{
+    background-color: #EDDCD2;
+    height: 100%;
+    width: auto;
+    position: relative;
+}
+
+
+.educheader{
+    font-family:JosefinReg;
+    font-size: 45px;
+    color: rgb(19, 19, 19);
+    padding-left: 140px;
+    padding-top: 80px;
+    padding-bottom: 10px;
+
+
+}
+
+.educData{
+    position: relative;
+    top: auto;
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    background-color:rgb(245, 241, 239);
+}
+
+.educData:hover{
+    padding: 10px;
+    padding-right: 15px;
+    transition: linear 0.3s;
+    box-shadow: 1px 4px 6px 10px rgba(0, 0, 0, 0.2);
+   
+}
+
+.educContent{
+    font-family:JosefinReg;
+    font-size: 45px;
+    color: rgb(19, 19, 19);
+    padding-left: 140px;
+
+}
+
+.addbutton{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+
+    padding: 5px;
+    font-size: 130px;
+    font-family: JosefinReg;
+    position: absolute;
+    right: 15px;
+    bottom: 30px;
+    border: 1px solid transparent;
+    
+
+}
+.Eschool{
+    font-family:ProximaNovaBold;
+    font-size: 30px;
+    display: inline-block;
+    color:rgb(48, 48, 48);
+    height: auto;
+    width: auto;
+   
+}
+
+.Edegree{
+    font-family: ProximaLight;
+    font-size: 30px;
+    color:black;
+
+    height: auto;
+    width: auto;
+    padding: 7px;
+} 
+.Eyear_start, .Eyear_end{
+    font-family: ProximaLight;
+    font-size: 30px;
+    color:black;
+    display: inline-block;
+    height: auto;
+    width: auto;
+    padding: 7px;
+    
+    
+
+}
+/*  -------------------------------------- END OF EDUC PAGE -------------------------------------- */
+/* ORG PAGE */
+.orgpage{
+    background-color: #B7B7A4;
+    height: 100%;
+    width: auto;
+    position: relative;
+}
+
+/*  */
+.orgheader{
+    font-family:JosefinReg;
+    font-size: 45px;
+    color: rgb(19, 19, 19);
+    padding-left: 140px;
+    padding-top: 80px;
+    padding-bottom: 10px;
+
+
+}
+
+.orgData{
+    position: relative;
+    top: auto;
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+    background-color: rgb(238, 238, 226);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 10px;
+}
+.orgData:hover{
+    padding: 10px;
+    padding-right: 15px;
+    transition: linear 0.3s;
+    box-shadow: 1px 4px 6px 10px rgba(0, 0, 0, 0.2);
+   
+}
+
+
+.orgContent{
+    font-family:JosefinReg;
+    font-size: 45px;
+    color: rgb(19, 19, 19);
+    padding-left: 140px;
+
+}
+
+
+.Oname{
+    font-family:ProximaNovaBold;
+    font-size: 30px;
+    display: inline-block;
+    color:rgb(48, 48, 48);
+    height: auto;
+    width: auto;
+   
+}
+
+.Oposition{
+    font-family: ProximaLight;
+    font-size: 30px;
+    color:black;
+
+    height: auto;
+    width: auto;
+    padding: 7px;
+} 
+.Oyear_start, .Oyear_end{
+    font-family: ProximaLight;
+    font-size: 30px;
+    color:black;
+    display: inline-block;
+    height: auto;
+    width: auto;
+    padding: 7px;
+    
+    
+
+}
+/*  -------------------------------------- END OF ORG PAGE -------------------------------------- */
+/* WORK PAGE */
+.workpage{
+    background-color: #F0EFEB;
+    /* background-color: black; */
+    height: 100%;
+    width: auto;
+    position: relative;
+}
+
+/*  */
+.workheader{
+    font-family:JosefinReg;
+    font-size: 45px;
+    color: rgb(19, 19, 19);
+    padding-left: 140px;
+    padding-top: 80px;
+    padding-bottom: 10px;
+
+
+}
+
+.workData{
+    position: relative;
+    top: auto;
+    float: left;
+    width: 60%;
+    padding: 0 10px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 10px;
+}
+.workData:hover{
+    padding: 10px;
+    padding-right: 15px;
+    transition: linear 0.3s;
+    box-shadow: 1px 4px 6px 10px rgba(0, 0, 0, 0.2);
+   
+}
+
+.workContent{
+    font-family:JosefinReg;
+    font-size: 45px;
+    color: rgb(19, 19, 19);
+    padding-left: 140px;
+
+}
+
+
+.Wname{
+    font-family:ProximaNovaBold;
+    font-size: 30px;
+    display: inline-block;
+    color:rgb(48, 48, 48);
+    height: auto;
+    width: auto;
+   
+}
+
+.Wlab{
+    font-family: ProximaLight;
+    font-size: 30px;
+    color:black;
+
+    height: auto;
+    width: auto;
+    padding: 7px;
+} 
+.Wyear_start, .Wyear_end{
+    font-family: ProximaLight;
+    font-size: 30px;
+    color:black;
+    display: inline-block;
+    height: auto;
+    width: auto;
+    padding: 7px;
+    
+    
+
+}
+
+/*  -------------------------------------- END OF WORK PAGE -------------------------------------- */
+/* OTHER PAGE */
+
+/* FIX */
+.otherpage{
+    background-color: #CB997E;
+    /* background-color: black; */
+    height: 100%;
+    width: auto;
+    position: relative;
+}
+
+/*  */
+.otherFooter{
+    font-family:JosefinBold;
+    font-size: 45px;
+    color: rgb(19, 19, 19);
+    position:absolute;
+    right: 15%;
+    bottom: 15%;
+    padding-left: 140px;
+    padding-bottom: 80px;
+    
+
+}
+.otherData{
+    position: relative;
+    top: auto;
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+    background-color: #CB997E;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 10px;
+}
+
+.otherContent{
+    font-family:JosefinReg;
+    font-size: 45px;
+    color: rgb(19, 19, 19);
+    position: relative;
+    top: 80px;
+    left: 140px;
+
+}
+
+
+.Othname{
+    font-family:ProximaNovaBold;
+    font-size: 30px;
+    display: inline-block;
+    color:rgb(48, 48, 48);
+    height: auto;
+    width: auto;
+   
+}
+
+
+
+/* FAVICON */
+.letterC{
+    position:fixed;
+    top: 30px;
+    left: 33px;
+    z-index: 10;
+    /* kahit mag scroll ka magsstay pa rin siya */
+    height: 70px;
+    width: 70px;
+}
+
+/* SOCMED ICONS */
+.twit{
+    height: 40px;
+}
+
+.linkedin{
+    height: 45px;
+}
+
+.github{
+    height: 50px;
+}
+
+
