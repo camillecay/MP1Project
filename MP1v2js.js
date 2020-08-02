@@ -223,6 +223,7 @@ function hideContent(){
             let intro = document.createElement('div');
                 intro.classList.add("intro");
                 intro.textContent = doc.data().fact;
+
                 intro_div.appendChild(intro);
                 introContent.appendChild(intro_div);
  
@@ -240,35 +241,47 @@ function hideContent(){
     //getting data netninja
     renderIntro();
 
-
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //------------------------------start of links data-----------------------------
 
            
 let linkContent = document.querySelector("#linkContent")
-function renderLink(doc){
-    let link_div = document.createElement('div');
-    link_div.classList.add("linkData");
-    link_div.setAttribute('id', doc.id);
+function renderLink(){
 
-    let link = document.createElement('div');
-        link.classList.add("link");
-        link.textContent = doc.data().link;
+    document.getElementById("linkContent").innerHTML ='';
+    db.collection('links').get().then(snapshot => {
+        snapshot.docs.forEach(doc => {
+            
+            let link_div = document.createElement('div');
+                link_div.classList.add("linkData");
+                link_div.setAttribute('id', doc.id);
+        
+            let link = document.createElement('div');
+                link.classList.add("link");
+                link.textContent = doc.data().link;
+        
+                link_div.appendChild(link);
+                linkContent.appendChild(link_div);
 
-        link_div.appendChild(link);
-      
-        linkContent.appendChild(link_div);
+            
+                let refresh = document.createElement('div');
+                refresh.textContent= '';
+                refresh.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    let getid = event.target.parentElement.getAttribute('id');
+                    db.collection('links').doc(getid).delete();
+                    renderLink();
 
-}
-//getting data netninja
-        db.collection('links').get().then(snapshot => {
-            snapshot.docs.forEach(doc => {
-                renderLink(doc);
             })
         })
-        
- 
+    })
+}
+    renderLink();
 
-    //-------------------------END OF GETTING DATA----------------------------------------------------------------------------
+
+       
+
+//-------------------------END OF GETTING DATA----------------------------------------------------------------------------
 // -------------------------------------ADDING/SAVINGDATA--------------------------------------------------------------
     // //adding/saving Data
     const addEducForm = document.querySelector('#addEducForm');
@@ -335,57 +348,61 @@ function renderLink(doc){
         })
     })
 
+   //whenever user presses the button, this will happen
 
-
-
-    const editLinkFormTwitter = document.querySelector('#editLinkFormTwitter');
-    const editLinkFormGithub = document.querySelector('#editLinkFormGithub');
-    const editLinkFormLinkedin = document.querySelector('#editLinkFormLinkedin');
-    // //whenever user presses the button, this will happen
-
-    
-    editLinkFormTwitter.addEventListener('button', (event) =>{
+    const editLinkFormTwitter = document.querySelector('#editLinkFormTwitter');   
+    editLinkFormTwitter.addEventListener('click', (event) =>{
         event.preventDefault();
-
         db.collection('links').doc('twitter').update({
-            twitter: editLinkFormTwitter.linkEditTwitter.value,
-        }).then(function(doc){
-            console.log('item added w ID: ' + doc.id)
+            link: editLinkFormTwitter.linkEditTwitter.value,
+        }).then(function(){
+            renderLink();
+            
         })
     })
+    function goTwitter() {
+        window.open(editLinkFormTwitter.linkEditTwitter.value, "_blank");
+    }
 
-    editLinkFormGithub.addEventListener('button', (event) =>{
+    const editLinkFormGithub = document.querySelector('#editLinkFormGithub');
+    editLinkFormGithub.addEventListener('click', (event) =>{
         event.preventDefault();
-
         db.collection('links').doc('github').update({
-            github: editLinkFormGithub.linkEditGithub.value,
-        }).then(function(doc){
-            console.log('item added w ID: ' + doc.id)
+            link: editLinkFormGithub.linkEditGithub.value,
+        }).then(function(){
+            renderLink();
         })
     })
 
+    function goGithub() {
+        window.open(editLinkFormGithub.linkEditGithub.value, "_blank");
+    }
+    
+    const editLinkFormLinkedin = document.querySelector('#editLinkFormLinkedin');
     editLinkFormLinkedin.addEventListener('button', (event) =>{
         event.preventDefault();
 
         db.collection('links').doc('linkedin').update({
-            linkedin: editLinkFormLinkedin.linkEditLinkedin.value,
-        }).then(function(doc){
-            console.log('item added w ID: ' + doc.id)
+            link: editLinkFormLinkedin.linkEditLinkedin.value,
+        }).then(function(){
+            renderLink();
         })
     })
+  function goLinkedin() {
+        window.open(editLinkFormLinkedin.linkEditLinkedin.value, "_blank");
+    }
 
-
-    function goGithub() {
-        window.open("https://camillecay.github.io/MP1Project/", "_blank");
-    }
+    // function goGithub() {
+    //     window.open(editLinkFormGithub.linkEditGithub.value, "_blank");
+    // }
     
-    function goTwitter() {
-        window.open("https://twitter.com/camille_cay", "_blank");
-    }
+    // function goTwitter() {
+    //     window.open(editLinkFormTwitter.linkEditTwitter.value, "_blank");
+    // }
     
-    function goLinkedin() {
-        window.open("www.linkedin.com/in/camille-cay-060500", "_blank");
-    }
+    // function goLinkedin() {
+    //     window.open(editLinkFormLinkedin.linkEditLinkedin.value, "_blank");
+    // }
     
 
 // COLLAPSE BUTTON STUFF
@@ -436,5 +453,3 @@ function linkcloseNav() {
     document.getElementById("linksideBar").style.width = "0";
   }
   
-
-
