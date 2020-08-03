@@ -245,38 +245,38 @@ function hideContent(){
 //------------------------------start of links data-----------------------------
 
            
-let linkContent = document.querySelector("#linkContent")
-function renderLink(){
+// let linkContent = document.querySelector("#linkContent")
+// function renderLink(){
 
-    document.getElementById("linkContent").innerHTML ='';
-    db.collection('links').get().then(snapshot => {
-        snapshot.docs.forEach(doc => {
+//     document.getElementById("linkContent").innerHTML ='';
+//     db.collection('links').get().then(snapshot => {
+//         snapshot.docs.forEach(doc => {
             
-            let link_div = document.createElement('div');
-                link_div.classList.add("linkData");
-                link_div.setAttribute('id', doc.id);
+//             let link_div = document.createElement('div');
+//                 link_div.classList.add("linkData");
+//                 link_div.setAttribute('id', doc.id);
         
-            let link = document.createElement('div');
-                link.classList.add("link");
-                link.textContent = doc.data().link;
+//             let link = document.createElement('div');
+//                 link.classList.add("link");
+//                 link.textContent = doc.data().link;
         
-                link_div.appendChild(link);
-                linkContent.appendChild(link_div);
+//                 link_div.appendChild(link);
+//                 linkContent.appendChild(link_div);
 
             
-                let refresh = document.createElement('div');
-                refresh.textContent= '';
-                refresh.addEventListener('click', (event) => {
-                    event.stopPropagation();
-                    let getid = event.target.parentElement.getAttribute('id');
-                    db.collection('links').doc(getid).delete();
-                    renderLink();
+//                 let refresh = document.createElement('div');
+//                 refresh.textContent= '';
+//                 refresh.addEventListener('click', (event) => {
+//                     event.stopPropagation();
+//                     let getid = event.target.parentElement.getAttribute('id');
+//                     db.collection('links').doc(getid).delete();
+//                     renderLink();
 
-            })
-        })
-    })
-}
-    renderLink();
+//             })
+//         })
+//     })
+// }
+//     renderLink();
 
 
        
@@ -356,7 +356,7 @@ function renderLink(){
         db.collection('links').doc('twitter').update({
             link: editLinkFormTwitter.linkEditTwitter.value,
         }).then(function(){
-            renderLink();
+            // renderLink();
             
         })
     })
@@ -370,7 +370,7 @@ function renderLink(){
         db.collection('links').doc('github').update({
             link: editLinkFormGithub.linkEditGithub.value,
         }).then(function(){
-            renderLink();
+            // renderLink();
         })
     })
 
@@ -379,13 +379,12 @@ function renderLink(){
     }
     
     const editLinkFormLinkedin = document.querySelector('#editLinkFormLinkedin');
-    editLinkFormLinkedin.addEventListener('button', (event) =>{
+    editLinkFormLinkedin.addEventListener('click', (event) =>{
         event.preventDefault();
-
         db.collection('links').doc('linkedin').update({
             link: editLinkFormLinkedin.linkEditLinkedin.value,
         }).then(function(){
-            renderLink();
+            // renderLink();
         })
     })
   function goLinkedin() {
