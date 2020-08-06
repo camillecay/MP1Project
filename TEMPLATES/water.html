@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Water Fill on Scroll</title>
+        <link rel="stylesheet" type="text/css" href="water.css">
+    </head>
+    <body>
+        <div class="cup">
+            <div class="water">
+                <div class="wave">
+                    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+                    <script type="text/javascript">
+                        $(window).scroll(function(){
+                            var scroll = $(window).scrollTop(),
+                                dh = $(document).height(),
+                                wh = $(window).height();
+                                scrollPercent = (scroll / (dh-wh)) * 100;
+                                $(".wave").css('top', scrollPercent + '%');
+                        })
+                    </script>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>
+
+

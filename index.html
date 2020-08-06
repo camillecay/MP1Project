@@ -5,60 +5,146 @@
         <link rel="icon" href="letterC.png" type="image/png" sizes="16x16">
     </head>
     <body>
-        <!-- EVERYTHING IS SINGULAR EXCEPT FOR COLLECTIONS AND DOCUMENT -->
-        <a href="letterC.png" target="_blank"></a>
-        <div class="container">
-            <nav class="navibar" id="navibar"> 
-                <span id="educ"><a href="#educpage" SameSite=None; Secure>Education</a></span>
-                <span id="org"><a href="#orgpage" SameSite=None; Secure>Organizations</a></span>
-                <span id="work"><a href="#workpage" SameSite=None; Secure>Works</a></span>
-                <span id="other"><a href="#otherpage" SameSite=None; Secure>Contact</a></span>
-                
-            </nav>
-            <div class="letterC" id="letterC">
-                
-                <a href="#frontpage"><img src="letterC.png" class="letterC"></a>
-            </div>
-            <div class="frontpage" id="frontpage" SameSite=None; Secure>
-                <span class="name">CAMILLE CAY</span>
-                
-            </div>
-        
-            <div class="educpage" id="educpage" SameSite=None; Secure >
-                <div class="educheader">
-                    Education   
-                    <table class="educContent" id ="educContent">
-                    </table>
-                </div>
-            </div>
-
-            <div class="orgpage" id="orgpage" SameSite=None; Secure>
-                <div class="orgheader">
-                    Organizations 
-                    <table class="orgContent" id ="orgContent">
-                    </table>
-                </div>
-            </div>
-
-            <div class="workpage" id="workpage" SameSite=None; Secure>
-                <div class="workheader">
-                    Works 
-                    <table class="workContent" id="workContent">
-                    </table>
-                </div>
-            </div>
-
-            <div class="otherpage" id="otherpage" SameSite=None; Secure>
-                <div class="otherFooter">
-                    Contact Me
-                    <table class="otherContent" id="otherContent">
-                    </table>
-                </div>
-
-            </div>
-
+        <nav class="navibar" id="navibar"> 
+            <span id="educ"><a href="#educpage" SameSite=None; Secure>Education</a></span>
+            <span id="org"><a href="#orgpage" SameSite=None; Secure>Organizations</a></span>
+            <span id="work"><a href="#workpage" SameSite=None; Secure>Works</a></span>
+            <span id="other"><a href="#otherpage" SameSite=None; Secure>Contact</a></span>
+        </nav>
+        <div class="letterC" id="letterC">
+            
+            <a href="#frontpage"><img src="letterC.png" class="letterC"></a>
         </div>
+        <div class="frontpage" id="frontpage" SameSite=None; Secure>
+            <div class="beforeName"> Hi! I'm</div>
+            <span class="name">CAMILLE CAY</span>
+            
+        </div>
+    
+        <!-- h1-h5 for spaces in between pages -->
+        <!-- div for consistent -->
+        <h1 class="educpage" id="educpage" SameSite=None; Secure >
+            <div class="educheader">
+                Education </div>
+                <!-- inside bar -->
 
+                <div id="educsideBar" class="educsideBar">
+                    <div class="educsidebarContents">
+                        Input Education Details
+                        <button class="educcloseNav" onclick="educcloseNav()">x</button>  
+                        <form class ="educinputs" id="addEducForm">
+                            <input type="text"  name="educAddschool"placeholder="Name of School"/>
+                            <input type="text" name="educAdddegree"placeholder="Name Of Degree"/>      
+                            <input type="text"  name="educAddstart"placeholder="Year Started"/>
+                            <input type="text" name="educAddend"placeholder="Year Ended"/>   
+                        <button class ="educbutton">Add</button> 
+                        </form>
+                    </div>
+                </div>
+                <!-- what to clikc for bar to open -->
+                <button type="submit"class="educopenNav"  onclick="educopenNav()">+</button>
+                <table class="educContent" id ="educContent"></table>
+        </h1>
+
+
+
+        <h2 class="orgpage" id="orgpage" SameSite=None; Secure>
+            <div class="orgheader">
+                Organizations 
+            </div>
+
+            <div id="orgsideBar" class="orgsideBar">
+                <div class="orgsidebarContents">
+                    Input Organization Details
+                    <button class="orgcloseNav" onclick="orgcloseNav()">x</button>
+                    <form class ="orginputs" id="addOrgForm">
+                        <input type="text"  name="orgAddname"placeholder="Name of Organization"/>
+                        <input type="text" name="orgAddposition"placeholder="Position"/>      
+                        <input type="text"  name="orgAddstart"placeholder="Year Started"/>
+                        <input type="text" name="orgAddend"placeholder="Year Ended"/>   
+                        <button type="submit"class ="orgbutton">Add</button> 
+                    </form>
+                </div>
+            </div>
+            <button class="orgopenNav"  onclick="orgopenNav()">+</button>
+                <table class="orgContent" id ="orgContent"></table> 
+        </h2>
+
+        <h3 class="workpage" id="workpage" SameSite=None; Secure>
+            <div class="workheader">
+                Works 
+            </div>
+            <div id="worksideBar" class="worksideBar">
+                <div class="worksidebarContents">
+                    Input Work Details
+                    <button class="workcloseNav" onclick="workcloseNav()">x</button>
+                    <form class ="workinputs" id="addWorkForm">
+                        <input type="text"  name="workAddname"placeholder="Name of Work"/>
+                        <input type="text" name="workAddlab"placeholder="Lab"/>      
+                        <input type="text"  name="workAddstart"placeholder="Year Started"/>
+                        <input type="text" name="workAddend"placeholder="Year Ended"/>   
+                        <button type="submit"class ="workbutton">Add</button> 
+                    </form>
+                </div>
+            </div>
+            <button class="workopenNav"  onclick="workopenNav()">+</button>
+                <table class="workContent" id="workContent"></table>
+        </h3>
+
+        <h4 class="otherpage" id="otherpage" SameSite=None; Secure>
+            <div class="otherFooter">
+                Contact Me 
+            </div>
+             
+            <div id="introsideBar" class="introsideBar">
+                <div class="introsidebarContents">
+                    Input New Intro
+                    <button class="introcloseNav" onclick="introcloseNav()">x</button>
+                        <form class ="introinputs" id="editIntroForm">
+                            <input type="text"  class="introEditFact" name="introEditfact"placeholder="Anything you'd like to let us know?"/>
+                            <button type="submit"class ="introbutton">Update</button> 
+                        </form>
+                </div>
+            </div>
+                    <img src="drawnpencil.png" class="introopenNav"  onclick="introopenNav()"></img>
+                    <table class="introContent" id="introContent"></table>
+
+
+
+             <div id="linksideBar" class="linksideBar">
+                <div class="linksidebarContents">
+                    Update Links
+
+                    <button class="linkcloseNav" onclick="linkcloseNav()">x</button> 
+                        <form class ="linkinputsTwitter" id="editLinkFormTwitter">
+                            <input type="text"  name="linkEditTwitter"placeholder="New Twitter Link"/>
+                        <button class ="linkbutton">Update</button> 
+                        </form>
+                        <form class ="linkinputsGithub" id="editLinkFormGithub">
+                            <input type="text"  name="linkEditGithub"placeholder="New Github Link"/>
+                        <button class ="linkbutton">Update</button> 
+                        </form>
+                        <form class ="linkinputsLinkedin" id="editLinkFormLinkedin">
+                            <input type="text"  name="linkEditLinkedin"placeholder="New LinkedLink"/>
+                        <button class ="linkbutton">Update</button> 
+                        </form>
+                </div>
+            </div>
+                 <!-- </div><img src="drawnpencil.png" class="linkopenNav"  onclick="linkopenNav()"></img>-->
+                 <button class="linkopenNav"  onclick="linkopenNav()">+</button> 
+                 <div class="icons">
+                    <img src="linkedinicon.png" class="linkedinicon" onclick="goLinkedin()">
+                    <img src="twittericon.png" class="twittericon"  onclick="goTwitter()">
+                    <img src="githubicon.png" class="githubicon" onclick="goGithub()">
+                    
+                 </div>   
+                 
+                <!-- <table class="linkContent" id="linkContent"></table> -->
+             
+        </h4>
+
+     
+    </div>
 
         <!-- JS -->
 

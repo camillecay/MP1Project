@@ -2,42 +2,43 @@
 
 //------------------------------ AUTHORIZATION --------------------------------------------
 
-function login(){
+// function login(){
 
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
-    firebase.auth().signInWithEmailAndPassword(email, password).then(function(user){
-        console.log("user signed in!");
-        document.getElementById("logincontainer").style.display = 'none';
-        document.getElementById("container").style.display = 'block';
-        document.getElementById("navibar").style.display = 'block';
-        document.getElementById("letterC").style.display = 'block';
+//     var email = document.getElementById("email").value;
+//     var password = document.getElementById("password").value;
 
-        var user = firebase.auth().currentUser;
-        if(user!=null) {
-            console.log(user.email);
-        }
-    }).catch(function(err){
-        if (err.code == "auth/wrong-password"){
-            alert("Wrong Password!");
-        }else{
-            alert(err.message);
-        }
-    })
-}
+    
+//     firebase.auth().signInWithEmailAndPassword(email, password).then(function(user){
+//         console.log("user signed in!");
+//         document.getElementById("logincontainer").style.display = 'none';
+//         document.getElementById("container").style.display = 'block';
+//         document.getElementById("navibar").style.display = 'block';
+//         document.getElementById("letterC").style.display = 'block';
 
-    document.getElementById("loginForm").addEventListener('click',function(e){
-        e.preventDefault();
+//         var user = firebase.auth().currentUser;
+//         if(user!=null) {
+//             console.log(user.email);
+//         }
+//     }).catch(function(err){
+//         if (err.code == "auth/wrong-password"){
+//             alert("Wrong Password!");
+//         }else{
+//             alert(err.message);
+//         }
+//     })
+// }
 
-    });
+//     document.getElementById("loginForm").addEventListener('click',function(e){
+//         e.preventDefault();
+//     });
     
 
 
-function hideContent(){
-    document.getElementById("container").style.display = 'none';
-    document.getElementById("navibar").style.display = 'none';
-    document.getElementById("letterC").style.display = 'none';
-}
+// function hideContent(){
+//     document.getElementById("container").style.display = 'none';
+//     document.getElementById("navibar").style.display = 'none';
+//     document.getElementById("letterC").style.display = 'none';
+// }
 
 
 //----------------------------------------------END OF AUTHORIZATION --------------------------------------------
@@ -166,11 +167,6 @@ function hideContent(){
                 Wname.classList.add("Wname");
                 Wname.textContent = doc.data().name;
     
-            let Wlab = document.createElement('div');
-                Wlab.classList.add("Wlab");
-                Wlab.textContent = doc.data().lab;
-    
-    
             let Wyear_start = document.createElement('div');
                 Wyear_start.classList.add("Wyear_start");
                 Wyear_start.textContent = doc.data().year_start;
@@ -184,8 +180,7 @@ function hideContent(){
                 delButton.textContent= 'x';
           
     
-                work_div.appendChild(Wname);
-                work_div.appendChild(Wlab);       
+                work_div.appendChild(Wname);       
                 work_div.appendChild(Wyear_start);
                 work_div.appendChild(Wyear_end);
                 work_div.appendChild(delButton);
@@ -205,6 +200,54 @@ function hideContent(){
     renderWork();
 
 //-----------------------------end of work data-----------------------------------
+
+// -------------------------  start of hobbies data --------------------------------
+
+
+
+
+    // hobby 
+    let hobbyContent = document.querySelector("#hobbyContent")
+    function renderHobby(){
+
+        document.getElementById("hobbyContent").innerHTML ='';
+    db.collection('hobbies').get().then(snapshot => {
+        snapshot.docs.forEach(doc => {
+
+            let hobby_div = document.createElement('div');
+            hobby_div.classList.add("hobbyData");
+            hobby_div.setAttribute('id', doc.id);
+
+            let hobby = document.createElement('div');
+                hobby.classList.add("hobby");
+                hobby.textContent = doc.data().hobby;
+
+                hobby_div.appendChild(hobby);
+                hobbyContent.appendChild(hobby_div);
+ 
+                let delButton = document.createElement('div');
+                delButton.textContent= 'x';
+
+
+                delButton.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    let getid = event.target.parentElement.getAttribute('id');
+                    db.collection('hobbies').doc(getid).delete();
+                    renderHobby();
+                })
+        })
+    })
+}
+    //getting data netninja
+    renderHobby();
+
+
+
+// ------------------------------ end of hobbies data
+
+
+
+
 //----------------------start of intro data---------------------------------
 
 
@@ -245,45 +288,15 @@ function hideContent(){
 //------------------------------start of links data-----------------------------
 
            
-// let linkContent = document.querySelector("#linkContent")
-// function renderLink(){
-
-//     document.getElementById("linkContent").innerHTML ='';
-//     db.collection('links').get().then(snapshot => {
-//         snapshot.docs.forEach(doc => {
-            
-//             let link_div = document.createElement('div');
-//                 link_div.classList.add("linkData");
-//                 link_div.setAttribute('id', doc.id);
-        
-//             let link = document.createElement('div');
-//                 link.classList.add("link");
-//                 link.textContent = doc.data().link;
-        
-//                 link_div.appendChild(link);
-//                 linkContent.appendChild(link_div);
-
-            
-//                 let refresh = document.createElement('div');
-//                 refresh.textContent= '';
-//                 refresh.addEventListener('click', (event) => {
-//                     event.stopPropagation();
-//                     let getid = event.target.parentElement.getAttribute('id');
-//                     db.collection('links').doc(getid).delete();
-//                     renderLink();
-
-//             })
-//         })
-//     })
-// }
-//     renderLink();
-
-
-       
 
 //-------------------------END OF GETTING DATA----------------------------------------------------------------------------
 // -------------------------------------ADDING/SAVINGDATA--------------------------------------------------------------
     // //adding/saving Data
+
+
+function educAskForOneMore(){
+    // lalabas yung option na add one more or smth
+}
     const addEducForm = document.querySelector('#addEducForm');
     // //whenever user presses the button, this will happen
     addEducForm.addEventListener('submit', (event) =>{
@@ -293,14 +306,19 @@ function hideContent(){
             degree: addEducForm.educAdddegree.value,
             year_start: addEducForm.educAddstart.value,
             year_end: addEducForm.educAddend.value
+
+            
         }).then(function(doc){
             console.log('item added w ID: ' + doc.id);
             renderEduc();
 
         })
+
+        document.getElementById("educAddschool").value = ''
+        document.getElementById("educAdddegree").value = ''
+        document.getElementById("educAddstart").value = ''
+        document.getElementById("educAddend").value = ''
     })
-
-
 
     const addWorkForm = document.querySelector('#addWorkForm');
     // //whenever user presses the button, this will happen
@@ -308,13 +326,17 @@ function hideContent(){
         event.preventDefault();
         db.collection('works').add({
             name: addWorkForm.workAddname.value,
-            lab: addWorkForm.workAddlab.value,
             year_start: addWorkForm.workAddstart.value,
             year_end: addWorkForm.workAddend.value
         }).then(function(doc){
             console.log('item added w ID: ' + doc.id);
             renderWork();
         })
+
+        document.getElementById("workAddname").value = ''
+        document.getElementById("workAddstart").value = ''
+        document.getElementById("workAddend").value = ''
+  
     })
 
 
@@ -332,6 +354,11 @@ function hideContent(){
             console.log('item added w ID: ' + doc.id);
             renderOrg();
         })
+
+        document.getElementById("orgAddname").value = ''
+        document.getElementById("orgAddposition").value = ''
+        document.getElementById("orgAddstart").value = ''
+        document.getElementById("orgAddend").value = ''
     })
 
     // EDIT DATA
@@ -341,11 +368,13 @@ function hideContent(){
     editIntroForm.addEventListener('submit', (event) =>{
         event.preventDefault();
         db.collection('introductions').doc('desc').update({
-            fact: editIntroForm.introEditfact.value,
+            fact: editIntroForm.introEditFact.value,
         }).then(function(){
             console.log("oks na");
             renderIntro();
         })
+        document.getElementById("introEditFact").value = ''
+        
     })
 
    //whenever user presses the button, this will happen
@@ -359,6 +388,8 @@ function hideContent(){
             // renderLink();
             
         })
+        document.getElementById("linkEditTwitter").value = ''
+        
     })
     function goTwitter() {
         window.open(editLinkFormTwitter.linkEditTwitter.value, "_blank");
@@ -372,6 +403,7 @@ function hideContent(){
         }).then(function(){
             // renderLink();
         })
+        document.getElementById("linkEditGithub").value = ''
     })
 
     function goGithub() {
@@ -386,32 +418,34 @@ function hideContent(){
         }).then(function(){
             // renderLink();
         })
+        document.getElementById("linkEditLinkedin").value = ''
     })
   function goLinkedin() {
         window.open(editLinkFormLinkedin.linkEditLinkedin.value, "_blank");
     }
 
-    // function goGithub() {
-    //     window.open(editLinkFormGithub.linkEditGithub.value, "_blank");
-    // }
-    
-    // function goTwitter() {
-    //     window.open(editLinkFormTwitter.linkEditTwitter.value, "_blank");
-    // }
-    
-    // function goLinkedin() {
-    //     window.open(editLinkFormLinkedin.linkEditLinkedin.value, "_blank");
-    // }
-    
+
+
 
 // COLLAPSE BUTTON STUFF
+
+function changeValEduc() // no ';' here
+{
+    if (document.getElementById('educopenNav').textContent=="+") 
+    document.getElementById('educopenNav').textContent = "-";
+    else 
+    document.getElementById('educopenNav').textContent = "+";
+}
+
+
 function educopenNav() {
     document.getElementById("educsideBar").style.width = "450px";
-
+    changeValEduc();
 }
 
 function educcloseNav() {
     document.getElementById("educsideBar").style.width = "0";
+    changeValEduc();
   }
   
 function orgopenNav() {
@@ -425,6 +459,7 @@ function orgcloseNav() {
 
   function workopenNav() {
     document.getElementById("worksideBar").style.width = "450px";
+ 
 
 }
 
@@ -442,7 +477,6 @@ function introcloseNav() {
   }
 
 
-
   function linkopenNav() {
     document.getElementById("linksideBar").style.width = "450px";
 
@@ -451,4 +485,5 @@ function introcloseNav() {
 function linkcloseNav() {
     document.getElementById("linksideBar").style.width = "0";
   }
-  
+
+

@@ -52,7 +52,6 @@ html,body{
 }
 
 
-
 .logincontainer{
     height: 100%;
     width: 100%;
@@ -131,28 +130,26 @@ input::placeholder{
     height: 100%;
     width: 100%;
 
-
 }
-
-
 
 /* ------------------------------- FRONT PAGE --------------------------------------- */
 .frontpage{
     background-color: #DDBEA9;
     height: 100%;
-    width: auto;;
+    width: auto;
     display: grid;
-    grid-template-rows: 4fr 1fr 4fr;
+    grid-template-rows: 3fr 1fr 3fr;
+  
     
 }
 
-.beforeName{
+.beforename{
     grid-row: 1/2;
     display: flex;
     justify-content: center;
     align-items: flex-end;
     padding-bottom: 20px;
-    font-size:40px;
+    font-size:90px;
     font-family: JosefinReg;
     color: rgb(105, 66, 45);
 }
@@ -170,11 +167,11 @@ input::placeholder{
 /* ------------------------------------------------------ NAVIGATION BAR ------------------------------------------------*/
 .navibar{
     position:fixed;
-    top: 30px;
+    top: 35px;
     right: 50px;
     z-index: 10;
     font-family:JosefinLight;
-    font-size: 40px;
+    font-size: 35px;
     
  
 }
@@ -227,7 +224,7 @@ input{
     min-height: 58%;
     height: auto;
     width: 0;
-    position: fixed;
+    position: absolute;
     z-index: 1;
     top: 160px;
     right: 0;
@@ -524,6 +521,18 @@ input{
     
 }
 
+.linkcloseNav{
+    background-color: transparent;
+    border: none;
+    font-family: ProximaLight;
+    font-size: 40px;
+    position: absolute;
+    top: 10px;
+    left: -35px;
+    color: gray;
+    
+}
+
 /* links side bar */
 
 
@@ -553,7 +562,7 @@ input{
     font-size: 50px;
     background-color: transparent;
     border: none;
-    font-size: 
+    /* font-size: */
 }
 
 .linkopenNav:hover{
@@ -585,11 +594,7 @@ input{
     padding: 7px;
     font-size: 20px;
     margin-bottom: 20px;
-    margin-left: 135px;
-
-
-    
-    
+    margin-left: 135px;  
 
 }
 
@@ -883,35 +888,48 @@ input{
 }
 
 /*  -------------------------------------- END OF WORK PAGE -------------------------------------- */
-/* OTHER PAGE */
-
-/* FIX */
-.otherpage{
-    background-color: #CB997E;
+/* -------------------------------- START OF HOBBY PAGE -----------------------------------------*/
+.hobbypage{
+    background-color: #E2D4BA;
     /* background-color: black; */
     min-height: 100%;
-    height: 100%;
+    height: auto;
+    width: auto;
+    position: relative;
+        
+}
+
+.hobbyheader{
+    font-family:JosefinReg;
+    font-size: 45px;
+    color: rgb(19, 19, 19);
+    padding-left: 140px;
+    padding-top: 80px;
+    padding-bottom: 10px;
+}
+
+.hobbyData{
+  
+        font-family:JosefinReg;
+        font-size: 45px;
+        color: rgb(19, 19, 19);
+        padding-left: 140px;
+    
+    
+}
+
+
+/* -------------------------------- END OF HOBBY PAGE -----------------------------------------*/
+/* ------------------------------------------OTHER PAGE--------------------------------------------- */
+
+ .otherpage{
+    background-color: #CB997E;
+    min-height: 100%;
+    height: auto;
     width: auto;
     position: relative;
 }
 
-/*  */
-.otherFooter{
-    font-family:JosefinBold;
-    font-size: 45px;
-    color: rgb(19, 19, 19);
-    position:absolute;
-    right: 15%;
-    bottom: 15%;
-    padding-left: 140px;
-    padding-bottom: 80px;
-}
-
-
-.linkedinicon, .githubicon, .twittericon{
-    height: 50px;
-    width: 50px; 
-}
 
 .introContent{
     height: 40%;
@@ -925,20 +943,198 @@ input{
     padding-top: 100px;
     padding-left: 130px;
    
+} 
+
+/*  -------------------------------------- END OF OTHER PAGE -------------------------- */
+/* ------------------------------------ LINKS PAGE ------------------------------------ */
+
+.linkpage{
+    background-color: #CCC7B9;
+    min-height: 100%;
+    height: auto;
+    width: auto;
+    position: relative;
+}
+.linkedinicon, .githubicon, .twittericon{
+    height: 50px;
+    width: 50px; 
 }
 
+
+
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.background {
+    position: absolute;
+    top: -40px;
+    left: -40px;
+    height: 120%;
+    width: 120%;
+    /* background-image: url(picKO.png); */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-filter: blur(30px);
+    filter: blur(30px);
+}
+
+.card {
+    position: absolute;
+    border-radius: 8px;
+    height: 450px;
+    width: 400px;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    background-image: url(picKO.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 80px -10px black;
+    overflow: hidden;
+}
+
+.card-blur {
+    position: absolute;
+    height: 100%;
+    width: calc(100% + 1px);
+    background-color: black;
+    opacity: 0;
+    transition: opacity 0.15s ease-in;
+}
+
+.card:hover .card-blur {
+    opacity: 0.6;
+}
+
+.footer {
+    z-index: 1;
+    position: absolute;
+    height: 80px;
+    width: 100%;
+    bottom: 0;
+}
+
+svg#curve {
+    position: absolute;
+    fill: white;
+    left: 0;
+    bottom: 0;
+    width: 400px;
+    height: 450px;
+}
+
+.connections {
+    height: 80px;
+    width: 400px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 100px;
+    margin: auto;
+    z-index: 2;
+}
+
+.connection {
+    height: 25px;
+    width: 25px;
+    border-radius: 100%;
+    /* background-color: white; */
+    display: inline-block;
+    padding: 5px;
+    margin-right: 25px;
+    transform: translateY(200px);
+    
+    transition: transform 1s cubic-bezier(.46, 1.48, .18, .81);
+}
+
+.card:hover .connection {
+    transform: translateY(0px);
+}
+
+.connection.github {
+    margin-left: 20px;
+    padding: 5px;
+}
+
+.connection.twitter {
+    margin-bottom: 20px;
+    transition-delay: 0.02s;
+}
+
+.connection.linkedin {
+    transition-delay: 0.04s;
+}
+
+.connection.github .icon {
+    height: 43px;
+    width: 43px;
+    margin-top: 4px;
+    margin-left: 5px; 
+    background-image: url(githubicon.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.connection.twitter .icon {
+    height: 43px;
+    width: 43px;
+    background-image: url(twittericon.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.connection.linkedin .icon {
+    height: 43.1px;
+    width: 43.1px;
+    margin-bottom: 2.6px;
+    margin-left: -6px;
+    background-image: url(linkedinicon.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.info {
+	font-family: Inconsolata;
+    padding-left: 20px;
+    transform: translateY(250px);
+
+    transition: transform 1s cubic-bezier(.31,1.21,.64,1.02);
+}
+
+.card:hover .info {
+    transform: translateY(0px);
+}
+
+.namecard {
+    font-weight: bolder;
+    padding-top: 5px;
+}
+
+.job {
+    margin-top: 10px;
+}
+    
 
 
 /* FAVICON */
-.letterC{
+/* .letterC{
     position:fixed;
     top: 30px;
     left: 33px;
-    z-index: 10;
+    z-index: 10; */
     /* kahit mag scroll ka magsstay pa rin siya */
-    height: 70px;
+    /* height: 70px;
     width: 70px;
-}
+    color: transparent;
+} */
 
 /* SOCMED ICONS */
 .twit{
@@ -951,6 +1147,71 @@ input{
 
 .github{
     height: 50px;
+}
+
+
+
+/* COFFEE */
+.cup{
+    z-index: 2;
+    position: fixed;
+    top: 10%;
+    left: 5%;
+    transform: translate(-50%,-50%);
+    width: 50px;
+    height: 80px;
+    border: 6px solid #262626;
+    border-top: 2px solid transparent;
+    border-radius: 15px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 0 0 0 6px #fff, 0 20px 35px rgba(0,0,0,1);
+
+}
+
+/* .cup:before{
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 28px;
+    border: 6px solid #fff;
+    right: -38px;
+    top: 10px;
+    border-top-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+} */
+
+.water{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: hidden;
+}
+
+.water .wave{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(coffee.png);
+    animation: animate 1s linear infinite;
+
+}
+
+@keyframes animate{
+    0%
+    {
+        background-position-x: 0px;
+    }
+    100%{
+        background-position-x: 200px;
+    }
 }
 
 
