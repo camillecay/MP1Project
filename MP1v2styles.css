@@ -610,13 +610,21 @@ input{
     
 }
 /* --------------------------------------------------------------START------------------------------------------------------------- */
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! TEMPLATE FOR EDUC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+
+
+/*  */
+
+
 /* EDUC PAGE */
 .educpage{
     background-color: #EDDCD2;
     min-height: 100%;
-    height: 100%;
+    height: auto;
     width: auto;
     position: relative;
+
 
 
 }
@@ -671,7 +679,8 @@ input{
     font-size: 45px;
     color: rgb(19, 19, 19);
     padding-left: 140px;
-
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .addbutton{
@@ -724,7 +733,7 @@ input{
 .orgpage{
     background-color: #B7B7A4;
     min-height: 100%;
-    height: 100%;
+    height: auto;
     width: auto;
     position: relative;
 }
@@ -765,6 +774,8 @@ input{
     font-size: 45px;
     color: rgb(19, 19, 19);
     padding-left: 140px;
+    display: flex;
+    flex-wrap: wrap;
 
 }
 
@@ -851,7 +862,8 @@ input{
     font-size: 45px;
     color: rgb(19, 19, 19);
     padding-left: 140px;
-
+    display: flex;
+    flex-wrap: wrap;
 }
 
 
