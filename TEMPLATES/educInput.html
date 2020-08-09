@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+
+            html,body{
+                height: 100%;
+                background-color: rgb(229, 206, 190);
+            }
+            @font-face{
+                /* used in title page */
+                src: url(JosefinSans/JosefinSansBold-OVA7o.ttf);
+                font-family: JosefinBold;
+            }
+
+            @font-face{
+                /* used in navi bar */
+                src: url(JosefinSans/JosefinSansLight-ZVEll.ttf);
+                font-family: JosefinLight;
+            }
+            @font-face{
+                /* used in page headers */
+                src: url(JosefinSans/JosefinSansRegular-x3LYV.ttf);
+                font-family: JosefinReg;
+            }
+
+
+            @font-face{
+                /* used in main info per section */
+                src: url(proxima_ssv/ProximaNova-Regular.otf);
+                font-family: ProximaReg;
+            }
+
+            @font-face{
+                /* used in for smaller info */
+                src: url(proxima_ssv/ProximaNovaAltLight.otf);
+                font-family: ProximaLight;
+            }
+
+            @font-face{
+                /* used in for smaller info */
+                src: url(proxima_ssv/ProximaNovaBold.otf);
+                font-family: ProximaNovaBold;
+            }
+
+            
+            .container{
+                height: 100%;
+                width: 100%;
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                background-color: EDDCD2;
+                
+            }
+
+            .educInputArea{
+                background-color:#FFF1E6;
+                height: 530px;
+                width: 450px;
+                border: 1px solid rgb(233, 227, 227);
+                border-radius: 10px;
+                box-shadow: 1px 1px 2px rgb(206, 177, 154);
+                display: grid;
+                grid-template-rows: 1fr 2fr 1fr;
+            }
+
+            .educInputHeader{
+                grid-row:1/2;
+                font-family: JosefinBold;
+                font-size: 50px;
+                padding-left: 30px;
+                padding-top: 30px;
+                align-items: center;
+            }
+
+            .inputs{
+                grid-row: 2/2;
+            }
+
+          input{
+              width: 350px;
+              height: 30px;
+              border: 1px transparent; 
+              border-bottom: 1px translucent gray;
+              border-radius: 10px;
+              background-color:rgb(252, 243, 236);
+              position: relative;
+              top: 10px;
+              left: 40px;
+              font-size: 16px;
+              margin: 13px;
+              padding-top: 7px;
+              font-family: ProximaReg;
+              
+          }
+
+          input::placeholder{
+              padding-left: 5px;
+          }
+
+            .buttton{
+                grid-row: 3/3;
+            }
+
+            #submitEducInput{
+                font-family:JosefinBold;
+                position: relative;
+                left: 160px;
+                top: 30px;
+                height: 40px;
+                width: 130px;
+                font-size: 20px;
+                border-radius:10px;
+                border: .1px solid lightgrey;
+
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="educInputArea">
+                <div class="educInputHeader">
+                    Input Education Details
+                </div>
+                <form class ="inputs" id="addEducForm">
+                    <input type="text"  name="educAddschool"placeholder="Name of School"/>
+                    <input type="text" name="educAdddegree"placeholder="Name Of Degree"/>      
+                    <input type="text"  name="educAddstart"placeholder="Year Started"/>
+                    <input type="text" name="educAddend"placeholder="Year Ended"/>   
+                    <button class ="button" >Add</button> 
+                </form>
+                
+               <script src="MP1v2js.js"></script>
+                
+        </div>
+
+    </body>
+</html>

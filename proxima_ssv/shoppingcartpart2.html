@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- saved from url=(0110)file:///C:/Users/Camille%20Cay/Desktop/SCHOOL!!!!!!!!!!!/TERM%206/CCAPDEV/JS/JSPRACTICE/shoppingcartpart2.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+    </head>
+    <body>
+        <select id="items">
+            <option id="Apple" value="Apple">Apple</option>
+            <option id="Orange" value="Orange">Orange</option>
+            <option id="Banana" value="Banana">Banana</option>
+        </select>
+
+        <input id="amount" placeholder="count">
+
+
+        <button id="addtocart" onclick="addtocart()">Add to Cart</button>
+        <button id="checkout">checkout</button>
+
+        <script>
+            // set prices for each item
+            // count how many of each item they got
+            // show to cart
+            // update total 
+            // function addtocart(){
+       
+
+        //     let currentCart = [];
+
+        //     currentCart = [{
+        //         item: 'apple', 
+        //         amount: 1, 
+        //         price: 10
+        //     },{
+        //         item: 'orange',
+        //         amount: 1,
+        //         price:20
+        //     }]
+        //     let total=0;
+
+        //     // let i=0;
+        //     // for (i=0;i<currentCart.length;i++) {
+        //     //    total = currentCart[i].price + total;
+        //     // }
+        // }
+            // console.log(total);
+
+
+            let applePrice = 10;
+            let orangePrice = 20;
+            let bananaPrice = 30;
+            function addtocart(){
+
+                if((items.value) == "Orange"){ 
+                currentCart = {
+                    item: document.getElementById('items').value,
+                    amount: document.getElementById('amount').value,
+                    price: (orangePrice*document.getElementById('amount').value)
+                    }
+                }
+                else if((items.value) == "Apple"){
+                currentCart = {
+                    item: document.getElementById('items').value,
+                    amount: document.getElementById('amount').value,
+                    price: (applePrice*document.getElementById('amount').value)
+                    }
+                }
+                else{
+                currentCart = {
+                    item: document.getElementById('items').value,
+                    amount: document.getElementById('amount').value,
+                    price: (bananaPrice*document.getElementById('amount').value )
+                    } 
+                }
+
+                
+                // console.log(bananaPrice*document.getElementById('amount').value )
+                // currentCart;
+            }
+
+            // let i;
+            //     for (i=0;i<currentCart[].length;i++){
+                    
+                // }
+        </script>
+    
+</body></html>

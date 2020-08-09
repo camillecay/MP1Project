@@ -193,6 +193,9 @@ input::placeholder{
     #work:hover{
         background-color: #F0EFEB;
     }
+    #hobby:hover{
+        background-color: #E2D4BA;
+    }
     #other:hover{
         background-color: #CB997E;
     }
@@ -300,7 +303,7 @@ input{
     min-height: 55%;
     height: auto;
     width: 0;
-    position: fixed;
+    position: absolute;
     z-index: 1;
     top: 160px;
     right: 0;
@@ -371,7 +374,7 @@ input{
     min-height: 55%;
     height: auto;
     width: 0;
-    position: fixed;
+    position: absolute;
     z-index: 1;
     top: 160px;
     right: 0;
@@ -441,17 +444,16 @@ input{
     
 }
 
-/* intro side bar */
-
-.introsideBar{
-    min-height: 60%;
+/* hobby side bar */
+.hobbysideBar{
+    min-height: 55%;
     height: auto;
     width: 0;
-    position: fixed;
+    position: absolute;
     z-index: 1;
     top: 160px;
     right: 0;
-    background-color: rgb(241, 221, 210);
+    background-color: White;
     overflow-x: hidden;
     transition: 0.5s;
     /* padding-top: 60px; */
@@ -460,18 +462,79 @@ input{
     font-family: JosefinBold;
 }
 
-.introopenNav{
-    height: 60px;
-    width: 60px;
+.hobbyopenNav{
+    font-size: 20px;
+    cursor: pointer;
+    background-color: white;
+    color: rgb(95, 95, 95);
+    border: 1px solid;
     position: absolute;
-    top:100px;
-    right: 70px;
+    right: 80px;
+    font-size: 30px;
+    border-radius: 50%;
+    padding: 10px 15px;
+    border: none;
+   
 }
 
-.introopenNav:hover{
-    background-color:rgb(241, 221, 210);
-    cursor: pointer;
-    border-radius: 20%;
+.hobbysidebarContents{
+    display: grid;
+    grid-template-rows: 1fr 3fr 30px;
+    font-size: 45px;
+    position:relative;
+    margin-left: 60px;
+    padding-top: 60px;
+
+}
+
+.hobbyinputs{
+    grid-row:2/3;
+    margin-top: 10px;
+   
+    
+}
+
+
+.hobbybutton{
+    grid: 3/3;
+    font-family:ProximaNovaBold;
+    padding: 7px;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left: 135px;
+    
+
+ 
+}
+
+.hobbycloseNav{
+    background-color: transparent;
+    border: none;
+    font-family: ProximaLight;
+    font-size: 40px;
+    position: absolute;
+    top: 10px;
+    left: -35px;
+    color: gray;
+    
+}
+
+/* intro side bar */
+
+.introsideBar{
+    position:relative;
+    height: 40%;
+    width: 0;
+    z-index: 5;
+    top: 160px;
+    left: 0;
+    background-color: rgb(241, 221, 210);
+    overflow-x: hidden;
+    transition: 0.5s;
+    /* padding-top: 60px; */
+    display: flex;
+    justify-content: center;
+    font-family: JosefinBold;
 }
 
 
@@ -506,20 +569,58 @@ input{
     margin-left: 135px;
     
 
- 
 }
 
 .introcloseNav{
     background-color: transparent;
+
     border: none;
     font-family: ProximaLight;
     font-size: 40px;
     position: absolute;
-    top: 10px;
-    left: -35px;
+    top: -50px;
+    right: 15px;
     color: gray;
     
 }
+
+
+
+/* links side bar */
+
+
+.linksideBar{
+    position:relative;
+    min-height: 70%;
+    height: auto;
+    width: 0;
+    position: absolute;
+    z-index: 1;
+    top: 140px;
+    right: 0;
+    background-color: rgb(231, 208, 195);
+    overflow-x: hidden;
+    transition: 0.5s;
+    /* padding-top: 60px; */
+    display: flex;
+    justify-content: center;
+    font-family: JosefinBold;
+}
+/* 
+.linkopenNav:after{
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    bottom:350px;
+    right: 70px;
+    font-size: 50px;
+    background-color: transparent;
+    border: none;
+
+}
+.linkopenNav:before{
+    display: none;
+} */
 
 .linkcloseNav{
     background-color: transparent;
@@ -533,45 +634,15 @@ input{
     
 }
 
-/* links side bar */
-
-
-.linksideBar{
-    min-height: 70%;
-    height: auto;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 140px;
-    right: 0;
-    background-color: rgb(241, 221, 210);
-    overflow-x: hidden;
-    transition: 0.5s;
-    /* padding-top: 60px; */
-    display: flex;
-    justify-content: center;
+/* .linkopenNav:hover{
+    z-index: 3;
     font-family: JosefinBold;
-}
-
-.linkopenNav{
-    height: 60px;
-    width: 60px;
-    position: absolute;
-    bottom:350px;
-    right: 70px;
-    font-size: 50px;
-    background-color: transparent;
-    border: none;
-    /* font-size: */
-}
-
-.linkopenNav:hover{
-    background-color:rgb(241, 221, 210);
-    cursor: pointer;
-    border-radius: 50%;
-}
+    color: white;
+ }   transform: translateY(100px);
+    /* transition: transform 1s cubic-bezier(.31,1.21,.64,1.02); */
 
 
+     
 .linksidebarContents{
     display: grid;
     font-size: 45px;
@@ -610,11 +681,6 @@ input{
     
 }
 /* --------------------------------------------------------------START------------------------------------------------------------- */
-/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! TEMPLATE FOR EDUC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
-
-
-
-/*  */
 
 
 /* EDUC PAGE */
@@ -624,11 +690,7 @@ input{
     height: auto;
     width: auto;
     position: relative;
-
-
-
 }
-
 
 .educheader{
     font-family:JosefinReg;
@@ -637,8 +699,6 @@ input{
     padding-left: 140px;
     padding-top: 80px;
     padding-bottom: 10px;
-
-
 }
 
 
@@ -653,18 +713,6 @@ input{
     background-color:rgb(245, 241, 239);
 }
 
-.delButton{
-    position: absolute;
-    bottom: 10px;
-    right: 15px;
-    font-family: ProximaLight;
-    font-size: 35px;
-}
-
-.delButton:hover{
-    color:rgb(112, 110, 110);
-    cursor: pointer;
-}
 
 .educData:hover{
     padding: 35px;
@@ -674,6 +722,23 @@ input{
    
 }
 
+.educData .delButton{
+    color: transparent;
+}
+.educData:hover .delButton{
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    font-family: ProximaLight;
+    font-size: 35px;
+    color: black;
+    transition: .9 ease-in-out;
+}
+
+.educData:hover .delButton:hover{
+    color:rgb(112, 110, 110);
+    cursor: pointer;
+}
 .educContent{
     font-family:JosefinReg;
     font-size: 45px;
@@ -767,7 +832,23 @@ input{
     box-shadow: 1px 4px 6px 10px rgba(0, 0, 0, 0.2);
    
 }
+.orgData .delButton{
+    color: transparent;
+}
+.orgData:hover .delButton{
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    font-family: ProximaLight;
+    font-size: 35px;
+    color: black;
+    transition: .9 ease-in-out;
+}
 
+.orgData:hover .delButton:hover{
+    color:rgb(112, 110, 110);
+    cursor: pointer;
+}
 
 .orgContent{
     font-family:JosefinReg;
@@ -856,7 +937,23 @@ input{
     box-shadow: 1px 4px 6px 10px rgba(0, 0, 0, 0.2);
    
 }
+.workData .delButton{
+    color: transparent;
+}
+.workData:hover .delButton{
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    font-family: ProximaLight;
+    font-size: 35px;
+    color: black;
+    transition: .9 ease-in-out;
+}
 
+.workData:hover .delButton:hover{
+    color:rgb(112, 110, 110);
+    cursor: pointer;
+}
 .workContent{
     font-family:JosefinReg;
     font-size: 45px;
@@ -907,8 +1004,7 @@ input{
     min-height: 100%;
     height: auto;
     width: auto;
-    position: relative;
-        
+    position: relative;      
 }
 
 .hobbyheader{
@@ -921,13 +1017,45 @@ input{
 }
 
 .hobbyData{
-  
-        font-family:JosefinReg;
-        font-size: 45px;
-        color: rgb(19, 19, 19);
-        padding-left: 140px;
-    
-    
+    display: inline-block;
+    width: 30%;
+    height: auto;
+    position: relative;
+    padding: 30px;
+    padding-right:50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    font-family:JosefinLight;
+    font-size: 45px;
+    color: rgb(19, 19, 19);
+    margin-left: 140px;
+    background-color: rgb(228, 222, 210);
+}
+.hobbyData:hover{
+
+    padding: 35px;
+    padding-right:55px;
+    height: auto;
+    transition: linear 0.3s;
+    box-shadow: 1px 4px 6px 10px rgba(0, 0, 0, 0.2);
+   
+}
+.hobbyData .delButton{
+    color: transparent;
+}
+.hobbyData:hover .delButton{
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    font-family: ProximaLight;
+    font-size: 35px;
+    color: black;
+    transition: .9 ease-in-out;
+}
+
+.hobbyData:hover .delButton:hover{
+    color:rgb(112, 110, 110);
+    cursor: pointer;
 }
 
 
@@ -936,75 +1064,78 @@ input{
 
  .otherpage{
     background-color: #CB997E;
-    min-height: 100%;
-    height: auto;
+    height: 100%;
     width: auto;
-    position: relative;
+    position: relative;   
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
 }
 
-
 .introContent{
-    height: 40%;
-    width: 50%;
-    font-family: JosefinReg;
-    font-size: 50px;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-    align-items: center;
-    padding-top: 100px;
-    padding-left: 130px;
+    grid-column:1/2;
+   padding: 20px;
+    height: auto;
+    width: auto;
+    font-family: ProximaReg;
+    position: absolute;
+    left: 180px;
+    top: 170px;
+    margin-top: 30px;
    
+}
+ .introContent:hover{
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 } 
+
+.introopenNav{
+    position: absolute;
+    top: 130px;
+    left: 670px;
+}
+
+/* INTRO HEADER EFEX */
+
+.introheader{
+   position: absolute;
+   top: 110px;
+   left: 120px;
+   font-size: 70px;
+    /* margin: 40px; */
+    font-family: ProximaNovaBold;
+}
 
 /*  -------------------------------------- END OF OTHER PAGE -------------------------- */
 /* ------------------------------------ LINKS PAGE ------------------------------------ */
 
-.linkpage{
+/* .linkpage{
     background-color: #CCC7B9;
     min-height: 100%;
     height: auto;
     width: auto;
     position: relative;
-}
+} */
 .linkedinicon, .githubicon, .twittericon{
     height: 50px;
     width: 50px; 
 }
 
-
-
-
+/* 
 html,
 body {
     height: 100%;
     width: 100%;
-}
+} */
 
-.background {
-    position: absolute;
-    top: -40px;
-    left: -40px;
-    height: 120%;
-    width: 120%;
-    /* background-image: url(picKO.png); */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    -webkit-filter: blur(30px);
-    filter: blur(30px);
-}
 
 .card {
+    grid-column:2/2;
     position: absolute;
     border-radius: 8px;
     height: 450px;
     width: 400px;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    margin: auto;
+    top: 25%;
+    right: 15%;
+    /* margin-right: 190px; */
     background-image: url(picKO.png);
     background-size: cover;
     background-position: center;
@@ -1017,7 +1148,8 @@ body {
     position: absolute;
     height: 100%;
     width: calc(100% + 1px);
-    background-color: black;
+    /* background-color: #1f9bcc; */
+    background-color: rgb(113, 90, 74);
     opacity: 0;
     transition: opacity 0.15s ease-in;
 }
@@ -1035,13 +1167,19 @@ body {
 }
 
 svg#curve {
+    /* transition: opacity 0.15s ease-in; */
     position: absolute;
-    fill: white;
+    fill:  #DDBEA9;
+    fill-opacity: .99999;
     left: 0;
     bottom: 0;
     width: 400px;
     height: 450px;
 }
+/* svg#curve:hover {
+    /* transition: opacity 0.15s ease-in; */
+/* display:none;
+} */ 
 
 .connections {
     height: 80px;
@@ -1058,12 +1196,10 @@ svg#curve {
     height: 25px;
     width: 25px;
     border-radius: 100%;
-    /* background-color: white; */
     display: inline-block;
     padding: 5px;
     margin-right: 25px;
     transform: translateY(200px);
-    
     transition: transform 1s cubic-bezier(.46, 1.48, .18, .81);
 }
 
@@ -1114,10 +1250,10 @@ svg#curve {
 }
 
 .info {
-	font-family: Inconsolata;
+    position: relative;
+	font-family: JosefinBold;
     padding-left: 20px;
     transform: translateY(250px);
-
     transition: transform 1s cubic-bezier(.31,1.21,.64,1.02);
 }
 
@@ -1128,12 +1264,26 @@ svg#curve {
 .namecard {
     font-weight: bolder;
     padding-top: 5px;
+    font-family: ProximaReg;
 }
 
 .job {
     margin-top: 10px;
+    font-family: JosefinBold;
 }
-    
+.card:hover .linkopenNav{
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    bottom:350px;
+    right: 10px;
+    font-size: 50px;
+    background-color: noblur;
+    border: none;
+    border-radius: 50%;
+
+}
+
 
 
 /* FAVICON */
@@ -1227,3 +1377,163 @@ svg#curve {
 }
 
 
+/* front page HANASH */
+.frontpage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(186, 138, 112);
+    font-family: JosefinBold;
+   overflow: hidden;
+    max-width: 100vw;
+    max-height: 100vh;
+    
+} 
+/* click button */
+.frontpage:before {
+    content: 'welcome to my website';
+    font-family: JosefinLight;
+    position: absolute;
+    z-index: 5;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+/* MILLE CA */
+ .frontpage * {
+    transition: all 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    color: #DDBEA9;
+}
+
+.frontpage *:before, .frontpage *:after {
+    transition: all 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 50%;
+    position: absolute;
+}
+
+.frontpage input.input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    cursor: pointer;
+   
+}
+.frontpage input.input[type="checkbox"]:checked ~ .cay {
+    transition: all 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* hi im */
+.frontpage .input.input[type="checkbox"]:checked ~ .cay:before {
+    transform: scale(1);
+    transition-delay: .001s;
+    background-color: rgb(186, 138, 112);
+    color: #DDBEA9;
+}
+.frontpage input.input[type="checkbox"]:checked ~ .cay h:before {
+    transform: scaleY(1);
+    transition: all 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition-delay: 0.4s;
+}
+  .frontpage input.input[type="checkbox"]:checked ~ .cay h:after {
+    box-shadow: 0 77px 0 1px #222, 0 72px 0 0px #765a64;
+    transition: all 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: scaleY(2) rotate(1deg);
+    transition-delay: 0.5s;
+} 
+
+.frontpage input.input[type="checkbox"]:checked ~ .cay h span:nth-child(1) {
+    transform: translateX(-2.5px) scaleY(1);
+    width: 50px;
+    margin: 0 5px;
+}
+.frontpage input.input[type="checkbox"]:checked ~ .cay h span:nth-child(2) {
+    transform: translateX(-2.5px) scaleY(1);  
+    width: 50px;
+    margin-left:40px;
+    margin-right: -20px;
+}
+
+.frontpage input.input[type="checkbox"]:checked ~ .cay h span:nth-child(3) {
+    transform: translateX(-2.5px) scaleY(1);
+    width: 50px;
+    margin: 0 5px;
+}
+.frontpage input.input[type="checkbox"]:checked ~ .cay h span:nth-child(4) {
+    transform: translateX(-2.5px) scaleY(1);
+    width: 50px;
+    margin: 0 5px;
+}
+.frontpage input.input[type="checkbox"]:checked ~ .cay h span:nth-child(5) {
+    transform: translateX(-2.5px) scaleY(1);
+    width: 50px;
+    margin: 0 5px;
+    margin-right: 10px;
+    padding-right: 20px;
+
+}
+.frontpage input.input[type="checkbox"]:checked ~ .cay h span:nth-child(6) {
+    transform: translateX(-2.5px) scaleY(1);
+    width: 50px;
+    margin: 0 15px;
+}
+.frontpage input.input[type="checkbox"]:checked ~ .cay h span:nth-child(7) {
+    transform: translateX(-2.5px) scaleY(1);
+    width: 50px;
+    margin: 0 5px;
+}
+
+.frontpage .cay {
+    position: relative;
+    display: inline-block;
+    padding-right: 0px;
+    min-width: 215px;
+
+  
+}
+ .frontpage .cay:before {
+    content: "Hi! I'm";
+    position: absolute;
+    width: 550px;
+    height: 500px;
+    background: #DDBEA9;
+    border-radius: 100%;
+    transition: all 500ms cubic-bezier(1, 0.885, 0.32, 1);
+    transform: scale(4);
+    font-size: 50px;
+    left: calc(4%);
+    top: calc(-40%);
+}
+
+/* CA */
+.frontpage .cay h {
+    margin: 0px;
+    /* color: rgb(105, 66, 45); */
+    color: rgb(105, 66, 45);
+    font-weight: 100;
+    font-size: 100px;
+    position: relative;
+}
+
+/* letters when closed*/
+.frontpage .cay h span {
+    display: inline-block;
+
+    position: relative;
+    width: 0px;
+    /* color: transparent; */
+    
+}
+/* letter Y */
+.frontpage .cay h span:last-of-type {
+    width: auto;
+    color: rgb(105, 66, 45);
+    
+}
+
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!intro!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */

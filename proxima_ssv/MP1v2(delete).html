@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="MP1v2styles.css">
+        <link rel="icon" href="letterC.png" type="image/png" sizes="16x16">
+    </head>
+    <body>
+        <!-- EVERYTHING IS SINGULAR EXCEPT FOR COLLECTIONS AND DOCUMENT -->
+        <a href="letterC.png" target="_blank"></a>
+        <div class="container">
+            <nav class="navibar" id="navibar"> 
+                <span id="educ"><a href="#educpage" SameSite=None; Secure>Education</a></span>
+                <span id="org"><a href="#orgpage" SameSite=None; Secure>Organizations</a></span>
+                <span id="work"><a href="#workpage" SameSite=None; Secure>Works</a></span>
+                <span id="other"><a href="#otherpage" SameSite=None; Secure>Contact</a></span>
+                
+            </nav>
+            <div class="letterC" id="letterC">
+                
+                <a href="#frontpage"><img src="letterC.png" class="letterC"></a>
+            </div>
+            <div class="frontpage" id="frontpage" SameSite=None; Secure>
+                <span class="name">CAMILLE CAY</span>
+                
+            </div>
+        
+            <div class="educpage" id="educpage" SameSite=None; Secure >
+                <div class="educheader">
+                    Education   
+                    <table class="educContent" id ="educContent">
+                    </table>
+                </div>
+            </div>
+
+            <div class="orgpage" id="orgpage" SameSite=None; Secure>
+                <div class="orgheader">
+                    Organizations 
+                    <table class="orgContent" id ="orgContent">
+                    </table>
+                </div>
+            </div>
+
+            <div class="workpage" id="workpage" SameSite=None; Secure>
+                <div class="workheader">
+                    Works 
+                    <table class="workContent" id="workContent">
+                    </table>
+                </div>
+            </div>
+
+            <div class="otherpage" id="otherpage" SameSite=None; Secure>
+                <div class="otherFooter">
+                    Contact Me
+                    <table class="otherContent" id="otherContent">
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- JS -->
+
+          <!-- tags -->
+            <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+
+            <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+
+
+        <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyC6CbJKFz2DRyvYoPrGafNaunl-zkaPdqE",
+            authDomain: "ccapdev-resume1.firebaseapp.com",
+            databaseURL: "https://ccapdev-resume1.firebaseio.com",
+            projectId: "ccapdev-resume1",
+            storageBucket: "ccapdev-resume1.appspot.com",
+            messagingSenderId: "459032712935",
+            appId: "1:459032712935:web:5892d2a5cd075f5a5a3442"
+        };
+        // Initialize Firebase
+        var defaultProject = firebase.initializeApp(firebaseConfig);
+
+        //whenever you interact with the database, we use this variable (db)
+        var db = firebase.firestore(); 
+
+        //put in an input thing
+        var email = "camille_cay@dlsu.edu.ph";
+        var password = "abcd1234";
+
+        firebase.auth().signInWithEmailAndPassword(email, password).then(function(user){
+            console.log("user signed in!");
+
+            var user = firebase.auth().currentUser;
+            if(user!=null) {
+                console.log(user.email);
+            }
+        }).catch(function(err){
+            if (err.code == "auth/wrong-password"){
+                alert("Wrong Password!")
+            }else{
+                alert(err.message);
+            }
+        })
+
+         //onlick then call a function then instide that function u can delete from firebase
+     
+        //get doc number
+
+        //How to make a div clickable?
+            // give it an ID, for example: id="smth"
+            // smth.onclick="function()"
+
+        
+
+        //wag na galawin
+         function mkEducTextNode(text, className,idName) {
+            let educ_div = document.createElement("div");
+            educ_div.appendChild(document.createTextNode(text));
+            educ_div.classList.add(className);
+            if(!!idName)
+                educ_div.id = idName;
+            return educ_div;
+        }
+
+        
+       
+
+        var eduContainer = document.getElementById("educContent");
+         
+        db.collection('educations').get().then(function(snapshot){
+            snapshot.forEach(function(doc){ //loop
+                let eduData = document.createElement("button");
+                eduData.classList.add("educData");
+                let degID = doc.data().degree.split(" ").join("").substring(0,17);
+                    eduData.appendChild(mkEducTextNode(doc.data().school, "Eschool"));
+                    eduData.appendChild(mkEducTextNode(doc.data().degree, "Edegree", degID));
+                    eduData.appendChild(mkEducTextNode(doc.data().year_start, "Eyear_start"));
+                    eduData.appendChild(mkEducTextNode(doc.data().year_end, "Eyear_end"));
+                    
+                eduContainer.append(eduData);
+      
+            })
+        })
+
+        function mkOrgTextNode(text, className) {
+            let org_div = document.createElement("div");
+            org_div.appendChild(document.createTextNode(text));
+            org_div.classList.add(className);
+            // if(!!idName)
+            //     org_div.id = idName;
+            return org_div;
+        }
+
+        var orgContainer = document.getElementById("orgContent");
+         
+        db.collection('organizations').get().then(function(snapshot){
+            snapshot.forEach(function(doc){ 
+                let orgData = document.createElement("div");
+                orgData.classList.add("orgData");
+                    orgData.appendChild(mkOrgTextNode(doc.data().name, "Oname"));
+                    orgData.appendChild(mkOrgTextNode(doc.data().position, "Oposition"));
+                    orgData.appendChild(mkOrgTextNode(doc.data().year_start, "Oyear_start"));
+                    orgData.appendChild(mkOrgTextNode(doc.data().year_end, "Oyear_end"));
+                    
+                orgContainer.append(orgData);
+      
+            })
+        })
+
+        function mkWorksTextNode(text, className) {
+            let work_div = document.createElement("div");
+            work_div.appendChild(document.createTextNode(text));
+            work_div.classList.add(className);
+            return work_div;
+        }
+
+        var workContainer = document.getElementById("workContent");
+         
+        db.collection('works').get().then(function(snapshot){
+            snapshot.forEach(function(doc){ 
+                let workData = document.createElement("div");
+                workData.classList.add("workData");
+                    workData.appendChild(mkWorksTextNode(doc.data().name, "Wname"));
+                    workData.appendChild(mkWorksTextNode(doc.data().lab, "Wlab"));
+                    workData.appendChild(mkWorksTextNode(doc.data().year_start, "Wyear_start"));
+                    workData.appendChild(mkWorksTextNode(doc.data().year_end, "Wyear_end"));
+                workContainer.append(workData);
+      
+            })
+        })
+
+        function mkOthersTextNode(text, className) {
+            let other_div = document.createElement("div");
+            other_div.appendChild(document.createTextNode(text));
+            other_div.classList.add(className);
+            return other_div;
+        }
+
+        var otherContainer = document.getElementById("otherContent");
+         
+        db.collection('others').get().then(function(snapshot){
+            snapshot.forEach(function(doc){ 
+                let otherData = document.createElement("div");
+                otherData.classList.add("otherData");
+                    otherData.appendChild(mkWorksTextNode(doc.data().value, "aboutme"));
+                    otherContainer.append(otherData);
+                    
+                            
+
+
+                    // <a href="https://twitter.com/camille_cay" target="_blank"><img src="twit.png" class="twit"></a>   
+                    // <a href="https://www.linkedin.com/in/camille-cay-8375811a2/" target="_blank"> <img src="linkedin.png" class="linkedin"></a>
+                    // <a href="https://github.com/camillecay" target="_blank">  <img src="github.png" class="github"></a> 
+      
+            })
+        })
+
+     </script>
+
+    </body>
+</html>

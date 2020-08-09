@@ -10,19 +10,6 @@
         <!-- EVERYTHING IS SINGULAR EXCEPT FOR COLLECTIONS AND DOCUMENT -->
         <a href="letterC.png" target="_blank"></a>
 
-        <!-- LOGIN HTML -->
-        <!-- <div class="logincontainer" id="logincontainer">
-            <div class="loginarea">
-                <div class="loginheader">
-                    USER LOGIN
-                </div>
-                <form class ="logininputs" id="loginForm" method ="post">
-                    <input type="text"  name="email" id="email"placeholder="Enter Email Address"/>
-                    <input type="password" name="password"id="password"placeholder="Enter Password"/>    
-                    <button type="submit" id="submitlogin" onclick="login();">Login</button>   
-                </form>
-            </div>
-        </div> -->
 
         <a href="#frontpage">
         <div class="cup">
@@ -44,10 +31,8 @@
     </div>
 </a>
 
-
-       
-
         <div class="container" id="container">
+          
 
             <nav class="navibar" id="navibar"> 
                 <span id="educ"><a href="#educpage">Education</a></span>
@@ -55,12 +40,17 @@
                 <span id="work"><a href="#workpage">Works</a></span>
                 <span id="hobby"><a href="#hobbypage">Interests</a></span>
                 <span id="other"><a href="#otherpage">About</a></span>
-                <span id="contact"><a href="#linkpage">Contact</a></span>
+                <!-- <span id="contact"><a href="#linkpage">Contact</a></span> -->
             </nav>
          
             <div class="frontpage" id="frontpage">
-                    <div class="beforename"> Hi! I'm</div>
-                        <div class="name">CAMILLE CAY </div>
+                    <!-- <div class="beforename"> Hi! I'm</div>
+                        <div class="name">CAMILLE CAY </div> -->
+            <input type="checkbox" class="input"/>
+            <div class = "cay">
+                <h>CA</span><span><b>M</b></span><span><b>I</b></span><span><b>L</b></span><span><b>L</b></span><span><b>E</b></span><span><b>C</b></span><span><b>A</b></span><span>Y</span></h1>
+            </div>
+                         
        
                     <!-- <img src="intoPic.png" class="intoPic"> -->
             </div>
@@ -138,9 +128,20 @@
             <h4 class="hobbypage" id="hobbypage">
                 <div class = "hobbyheader">Interests
                 </div>
-
-                <table class="hobbyContent" id="hobbyContent"></table>
-
+                <div id="hobbysideBar" class="hobbysideBar">
+                    <div class="hobbysidebarContents">
+                        Input Your Hobbies
+                        <button class="hobbycloseNav" onclick="hobbycloseNav()">x</button>
+                        <form class ="hobbyinputs" id="addHobbyForm">
+                            <input type="text"  id="hobbyAddname"name="hobbyAddname"placeholder="Name of hobby"/>    
+                            <button type="submit"class ="hobbybutton">Add</button> 
+                        </form>
+                    </div>
+                </div>
+                <button class="hobbyopenNav"  onclick="hobbyopenNav()">+</button>
+                    <table class="hobbyContent" id="hobbyContent">
+                    </table>
+                
                 
             </h4>
 
@@ -158,19 +159,56 @@
                             </form>
                     </div>
                 </div>
-                        <img src="drawnpencil.png" class="introopenNav"  onclick="introopenNav()"></img>
-                        <table class="introContent" id="introContent"></table>
+                    <span class="introheader" id="introheader">Get to know me!</span>
+
+                        <table class="introContent" id="introContent">
+                            <img src="drawnpencilsmol.png" class="introopenNav" onclick="introopenNav()"></img>
+
+                            <!-- <div class="introopenNav" onclick="introopenNav()">+</div> -->
+                        </table>
                  
-            </h5>
-        
-            <h6>  
+         
              <!-- links -->
              <div class="linkpage" id="linkpage" >
                 <!-- LINKS SIDEBAR -->
+         
+                <div id="curve" class="card">
+                    <div class="footer">
+                        <div class="connections">
+                            <div class="connection github" onclick="goGithub()"><div class="icon"></div></div>
+                            <div class="connection twitter"onclick="goTwitter()" ><div class="icon"></div></div>
+                            <div class="connection linkedin"  onclick="goLinkedin()"><div class="icon"></div></div>
+                        </div>
+                        <svg id="curve">
+                            <path id="p" d="M0,200 Q80,100 400,200 V150 H0 V50" transform="translate(0 300)" />
+                            <rect id="dummyRect" x="0" y="0" height="450" width="400"
+                          fill="transparent" />
+                            <!-- slide up-->
+                            <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,100 400,50 V150 H0 V50" fill="freeze" begin="dummyRect.mouseover" end="dummyRect.mouseout" dur="0.1s" id="bounce1" />
+                            <!-- slide up and curve in -->
+                            <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,0 400,50 V150 H0 V50" fill="freeze" begin="bounce1.end" end="dummyRect.mouseout" dur="0.15s" id="bounce2" />
+                            <!-- slide down and curve in -->
+                            <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,80 400,50 V150 H0 V50" fill="freeze" begin="bounce2.end" end="dummyRect.mouseout" dur="0.15s" id="bounce3" />
+                            <!-- slide down and curve out -->
+                            <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,45 400,50 V150 H0 V50" fill="freeze" begin="bounce3.end" end="dummyRect.mouseout" dur="0.1s" id="bounce4" />
+                            <!-- curve in -->
+                            <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,50 400,50 V150 H0 V50" fill="freeze" begin="bounce4.end" end="dummyRect.mouseout" dur="0.05s" id="bounce5" />
+                
+                            <animate xlink:href="#p" attributeName="d" to="M0,200 Q80,100 400,200 V150 H0 V50" fill="freeze" begin="dummyRect.mouseout" dur="0.15s" id="bounceOut" />
+                        </svg>
+                        <div class="info">
+                            <div class="namecard">Camille Cay</div>
+                            <div class="job">Contact Me!</div>
+                          <img src="cardEdit.png" class="linkopenNav"  onclick="linkopenNav()"></img> 
+                        </div>
+                    </div>
+                    
+                    <div class="card-blur"></div>
+                    
+                </div>
                 <div id="linksideBar" class="linksideBar">
                     <div class="linksidebarContents">
                         Update Links
-
                         <button class="linkcloseNav" onclick="linkcloseNav()">x</button> 
                             <form class ="linkinputsTwitter" id="editLinkFormTwitter">
                                 <input type="text" id="linkEditTwitter" name="linkEditTwitter"placeholder="New Twitter Link"/>
@@ -186,44 +224,12 @@
                             </form>
                     </div>
                 </div>
-                     <button class="linkopenNav"  onclick="linkopenNav()">+</button> 
-                     <!-- LINKS ICONS -->
-                     <div class="background"></div>
-                     <div id="curve" class="card">
-                         <div class="footer">
-                             <div class="connections">
-                                 <div class="connection github" onclick="goGithub()"><div class="icon"></div></div>
-                                 <div class="connection twitter"onclick="goTwitter()" ><div class="icon"></div></div>
-                                 <div class="connection linkedin"  onclick="goLinkedin()"><div class="icon"></div></div>
-                             </div>
-                             <svg id="curve">
-                                 <path id="p" d="M0,200 Q80,100 400,200 V150 H0 V50" transform="translate(0 300)" />
-                                 <rect id="dummyRect" x="0" y="0" height="450" width="400"
-                               fill="transparent" />
-                                 <!-- slide up-->
-                                 <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,100 400,50 V150 H0 V50" fill="freeze" begin="dummyRect.mouseover" end="dummyRect.mouseout" dur="0.1s" id="bounce1" />
-                                 <!-- slide up and curve in -->
-                                 <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,0 400,50 V150 H0 V50" fill="freeze" begin="bounce1.end" end="dummyRect.mouseout" dur="0.15s" id="bounce2" />
-                                 <!-- slide down and curve in -->
-                                 <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,80 400,50 V150 H0 V50" fill="freeze" begin="bounce2.end" end="dummyRect.mouseout" dur="0.15s" id="bounce3" />
-                                 <!-- slide down and curve out -->
-                                 <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,45 400,50 V150 H0 V50" fill="freeze" begin="bounce3.end" end="dummyRect.mouseout" dur="0.1s" id="bounce4" />
-                                 <!-- curve in -->
-                                 <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,50 400,50 V150 H0 V50" fill="freeze" begin="bounce4.end" end="dummyRect.mouseout" dur="0.05s" id="bounce5" />
                      
-                                 <animate xlink:href="#p" attributeName="d" to="M0,200 Q80,100 400,200 V150 H0 V50" fill="freeze" begin="dummyRect.mouseout" dur="0.15s" id="bounceOut" />
-                             </svg>
-                             <div class="info">
-                                 <div class="namecard">Camille Cay</div>
-                                 <div class="job">Isang Malaking Hatdog</div>
-                             </div>
-                         </div>
-                         <div class="card-blur"></div>
-                     </div>
+                    
+                     
                 </div>
             
-       
-            </h6>
+            </h5>
 
   </div>
         
@@ -264,3 +270,26 @@
 
     </body>
 </html>
+
+<!-- 
+<section id="sec">
+    <h2>TEST</h2>
+   
+      <li>
+        <span class="fa fa-code"></span>
+  
+        <h3>Music</h3>
+        <p>Music is an art form whose medium is sound and silence. Generally, a song is considered the smallest standalone work of music, especially when involving singing. </p>
+      </li>
+      <li><span class="fa fa-music"></span>
+        <h3>Music</h3>
+        <p>Music is an art form whose medium is sound and silence. Generally, a song is considered the smallest standalone work of music, especially when involving singing. </p>
+        <p>The common elements of music are pitch (which governs melody and harmony), rhythm (and its associated concepts tempo, meter, and articulation), dynamics, and the sonic qualities of timbre and texture.</p>
+      </li>
+      <li><span class="fa fa-users"></span>
+        <h3>Music</h3>
+        <p>Music is an art form whose medium is sound and silence. Generally, a song is considered the smallest standalone work of music, especially when involving singing. </p>
+        <p>The common elements of music are pitch (which governs melody and harmony), rhythm (and its associated concepts tempo, meter, and articulation), dynamics, and the sonic qualities of timbre and texture. The word derives from Greek μουσική (mousike; "art of the Muses").</p></li>
+  
+   
+  </section> -->

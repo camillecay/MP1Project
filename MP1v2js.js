@@ -222,11 +222,15 @@
                 hobby.classList.add("hobby");
                 hobby.textContent = doc.data().hobby;
 
+                let delButton = document.createElement('div');
+                delButton.classList.add("delButton");
+                delButton.textContent= 'x';
+
                 hobby_div.appendChild(hobby);
+                hobby_div.appendChild(delButton);
                 hobbyContent.appendChild(hobby_div);
  
-                let delButton = document.createElement('div');
-                delButton.textContent= 'x';
+               
 
 
                 delButton.addEventListener('click', (event) => {
@@ -294,9 +298,9 @@
     // //adding/saving Data
 
 
-function educAskForOneMore(){
-    // lalabas yung option na add one more or smth
-}
+// function educAskForOneMore(){
+//     // lalabas yung option na add one more or smth
+// }
     const addEducForm = document.querySelector('#addEducForm');
     // //whenever user presses the button, this will happen
     addEducForm.addEventListener('submit', (event) =>{
@@ -359,6 +363,22 @@ function educAskForOneMore(){
         document.getElementById("orgAddposition").value = ''
         document.getElementById("orgAddstart").value = ''
         document.getElementById("orgAddend").value = ''
+    })
+
+    const addHobbyForm = document.querySelector('#addHobbyForm');
+    // //whenever user presses the button, this will happen
+    addHobbyForm.addEventListener('submit', (event) =>{
+        event.preventDefault();
+        db.collection('hobbies').add({
+            hobby: addHobbyForm.hobbyAddname.value
+        }).then(function(doc){
+            console.log('item added w ID: ' + doc.id);
+            renderHobby();
+
+        })
+
+        document.getElementById("hobbyAddname").value = '';
+
     })
 
     // EDIT DATA
@@ -448,6 +468,15 @@ function educcloseNav() {
     changeValEduc();
   }
   
+
+  function changeValOrg() // no ';' here
+{
+    if (document.getElementById('orgopenNav').textContent=="+") 
+    document.getElementById('orgopenNav').textContent = "-";
+    else 
+    document.getElementById('orgopenNav').textContent = "+";
+}
+
 function orgopenNav() {
     document.getElementById("orgsideBar").style.width = "450px";
 
@@ -456,6 +485,16 @@ function orgopenNav() {
 function orgcloseNav() {
     document.getElementById("orgsideBar").style.width = "0";
   }
+
+
+
+  function changeValWork() // no ';' here
+{
+    if (document.getElementById('workopenNav').textContent=="+") 
+    document.getElementById('workopenNav').textContent = "-";
+    else 
+    document.getElementById('workpenNav').textContent = "+";
+}
 
   function workopenNav() {
     document.getElementById("worksideBar").style.width = "450px";
@@ -467,6 +506,16 @@ function workcloseNav() {
     document.getElementById("worksideBar").style.width = "0";
   }
   
+
+
+  function changeValIntro() // no ';' here
+  {
+      if (document.getElementById('introopenNav').textContent=="+") 
+      document.getElementById('introopenNav').textContent = "-";
+      else 
+      document.getElementById('introopenNav').textContent = "+";
+  }
+  
   function introopenNav() {
     document.getElementById("introsideBar").style.width = "450px";
 
@@ -476,7 +525,14 @@ function introcloseNav() {
     document.getElementById("introsideBar").style.width = "0";
   }
 
-
+  function changeValLink() // no ';' here
+  {
+      if (document.getElementById('linkopenNav').textContent=="+") 
+      document.getElementById('linkopenNav').textContent = "-";
+      else 
+      document.getElementById('linkopenNav').textContent = "+";
+  }
+  
   function linkopenNav() {
     document.getElementById("linksideBar").style.width = "450px";
 
@@ -487,3 +543,20 @@ function linkcloseNav() {
   }
 
 
+
+  function changeValHobby() // no ';' here
+  {
+      if (document.getElementById('hobbyopenNav').textContent=="+") 
+      document.getElementById('hobbyopenNav').textContent = "-";
+      else 
+      document.getElementById('hobbyopenNav').textContent = "+";
+  }
+  
+  function hobbyopenNav() {
+    document.getElementById("hobbysideBar").style.width = "450px";
+
+}
+
+function hobbycloseNav() {
+    document.getElementById("hobbysideBar").style.width = "0";
+  }
