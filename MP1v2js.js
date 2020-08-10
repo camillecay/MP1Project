@@ -2,43 +2,43 @@
 
 //------------------------------ AUTHORIZATION --------------------------------------------
 
-// function login(){
+function login(){
 
-//     var email = document.getElementById("email").value;
-//     var password = document.getElementById("password").value;
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
 
     
-//     firebase.auth().signInWithEmailAndPassword(email, password).then(function(user){
-//         console.log("user signed in!");
-//         document.getElementById("logincontainer").style.display = 'none';
-//         document.getElementById("container").style.display = 'block';
-//         document.getElementById("navibar").style.display = 'block';
-//         document.getElementById("letterC").style.display = 'block';
+    firebase.auth().signInWithEmailAndPassword(email, password).then(function(user){
+        console.log("user signed in!");
+        document.getElementById("logincontainer").style.display = 'none';
+        document.getElementById("container").style.display = 'block';
+        document.getElementById("navibar").style.display = 'block';
+        document.getElementById("letterC").style.display = 'block';
 
-//         var user = firebase.auth().currentUser;
-//         if(user!=null) {
-//             console.log(user.email);
-//         }
-//     }).catch(function(err){
-//         if (err.code == "auth/wrong-password"){
-//             alert("Wrong Password!");
-//         }else{
-//             alert(err.message);
-//         }
-//     })
-// }
+        var user = firebase.auth().currentUser;
+        if(user!=null) {
+            console.log(user.email);
+        }
+    }).catch(function(err){
+        if (err.code == "auth/wrong-password"){
+            alert("Wrong Password!");
+        }else{
+            alert(err.message);
+        }
+    })
+}
 
-//     document.getElementById("loginForm").addEventListener('click',function(e){
-//         e.preventDefault();
-//     });
+    document.getElementById("loginForm").addEventListener('click',function(e){
+        e.preventDefault();
+    });
     
 
 
-// function hideContent(){
-//     document.getElementById("container").style.display = 'none';
-//     document.getElementById("navibar").style.display = 'none';
-//     document.getElementById("letterC").style.display = 'none';
-// }
+function hideContent(){
+    document.getElementById("container").style.display = 'none';
+    document.getElementById("navibar").style.display = 'none';
+    document.getElementById("letterC").style.display = 'none';
+}
 
 
 //----------------------------------------------END OF AUTHORIZATION --------------------------------------------

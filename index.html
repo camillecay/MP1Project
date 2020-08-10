@@ -1,306 +1,191 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="MP1styles.css">
+        <link rel="stylesheet" href="indexstyles.css">
         <link rel="icon" href="letterC.png" type="image/png" sizes="16x16">
     </head>
-    <body>
-        <nav class="navibar" id="navibar"> 
-            <span id="educ"><a href="#educpage" SameSite=None; Secure>Education</a></span>
-            <span id="org"><a href="#orgpage" SameSite=None; Secure>Organizations</a></span>
-            <span id="work"><a href="#workpage" SameSite=None; Secure>Works</a></span>
-            <span id="other"><a href="#otherpage" SameSite=None; Secure>Contact</a></span>
-        </nav>
-        <div class="letterC" id="letterC">
-            
-            <a href="#frontpage"><img src="letterC.png" class="letterC"></a>
+    <!-- <body onload="hideContent();"> !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!UNCOMMENT SA FINAL!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+        <body>
+        <!-- EVERYTHING IS SINGULAR EXCEPT FOR COLLECTIONS AND DOCUMENT -->
+        <a href="letterC.png" target="_blank"></a>
+
+
+        <a href="#frontpage">
+        <div class="cup">
+            <div class="water">
+                <div class="wave">
+                    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+                    <script type="text/javascript">
+                        $(window).scroll(function(){
+                            var scroll = $(window).scrollTop(),
+                                dh = $(document).height(),
+                                wh = $(window).height();
+                                scrollPercent = (scroll / (dh-wh)) * 100;
+                                $(".wave").css('top', scrollPercent + '%');
+                        })
+                    </script>
+                     
+            </div>
         </div>
-        <div class="frontpage" id="frontpage" SameSite=None; Secure>
-            <div class="beforeName"> Hi! I'm</div>
-            <span class="name">CAMILLE CAY</span>
-            
-        </div>
-    
-        <!-- h1-h5 for spaces in between pages -->
-        <!-- div for consistent -->
-        <h1 class="educpage" id="educpage" SameSite=None; Secure >
-            <div class="educheader">
-                Education </div>
-                <!-- inside bar -->
-
-                <div id="educsideBar" class="educsideBar">
-                    <div class="educsidebarContents">
-                        Input Education Details
-                        <button class="educcloseNav" onclick="educcloseNav()">x</button>  
-                        <form class ="educinputs" id="addEducForm">
-                            <input type="text"  name="educAddschool"placeholder="Name of School"/>
-                            <input type="text" name="educAdddegree"placeholder="Name Of Degree"/>      
-                            <input type="text"  name="educAddstart"placeholder="Year Started"/>
-                            <input type="text" name="educAddend"placeholder="Year Ended"/>   
-                        <button class ="educbutton">Add</button> 
-                        </form>
-                    </div>
-                </div>
-                <!-- what to clikc for bar to open -->
-                <button type="submit"class="educopenNav"  onclick="educopenNav()">+</button>
-                <table class="educContent" id ="educContent"></table>
-        </h1>
-
-
-
-        <h2 class="orgpage" id="orgpage" SameSite=None; Secure>
-            <div class="orgheader">
-                Organizations 
-            </div>
-
-            <div id="orgsideBar" class="orgsideBar">
-                <div class="orgsidebarContents">
-                    Input Organization Details
-                    <button class="orgcloseNav" onclick="orgcloseNav()">x</button>
-                    <form class ="orginputs" id="addOrgForm">
-                        <input type="text"  name="orgAddname"placeholder="Name of Organization"/>
-                        <input type="text" name="orgAddposition"placeholder="Position"/>      
-                        <input type="text"  name="orgAddstart"placeholder="Year Started"/>
-                        <input type="text" name="orgAddend"placeholder="Year Ended"/>   
-                        <button type="submit"class ="orgbutton">Add</button> 
-                    </form>
-                </div>
-            </div>
-            <button class="orgopenNav"  onclick="orgopenNav()">+</button>
-                <table class="orgContent" id ="orgContent"></table> 
-        </h2>
-
-        <h3 class="workpage" id="workpage" SameSite=None; Secure>
-            <div class="workheader">
-                Works 
-            </div>
-            <div id="worksideBar" class="worksideBar">
-                <div class="worksidebarContents">
-                    Input Work Details
-                    <button class="workcloseNav" onclick="workcloseNav()">x</button>
-                    <form class ="workinputs" id="addWorkForm">
-                        <input type="text"  name="workAddname"placeholder="Name of Work"/>
-                        <input type="text" name="workAddlab"placeholder="Lab"/>      
-                        <input type="text"  name="workAddstart"placeholder="Year Started"/>
-                        <input type="text" name="workAddend"placeholder="Year Ended"/>   
-                        <button type="submit"class ="workbutton">Add</button> 
-                    </form>
-                </div>
-            </div>
-            <button class="workopenNav"  onclick="workopenNav()">+</button>
-                <table class="workContent" id="workContent"></table>
-        </h3>
-
-        <h4 class="otherpage" id="otherpage" SameSite=None; Secure>
-            <div class="otherFooter">
-                Contact Me 
-            </div>
-             
-            <div id="introsideBar" class="introsideBar">
-                <div class="introsidebarContents">
-                    Input New Intro
-                    <button class="introcloseNav" onclick="introcloseNav()">x</button>
-                        <form class ="introinputs" id="editIntroForm">
-                            <input type="text"  class="introEditFact" name="introEditfact"placeholder="Anything you'd like to let us know?"/>
-                            <button type="submit"class ="introbutton">Update</button> 
-                        </form>
-                </div>
-            </div>
-                    <img src="drawnpencil.png" class="introopenNav"  onclick="introopenNav()"></img>
-                    <table class="introContent" id="introContent"></table>
-
-
-
-             <div id="linksideBar" class="linksideBar">
-                <div class="linksidebarContents">
-                    Update Links
-
-                    <button class="linkcloseNav" onclick="linkcloseNav()">x</button> 
-                        <form class ="linkinputsTwitter" id="editLinkFormTwitter">
-                            <input type="text"  name="linkEditTwitter"placeholder="New Twitter Link"/>
-                        <button class ="linkbutton">Update</button> 
-                        </form>
-                        <form class ="linkinputsGithub" id="editLinkFormGithub">
-                            <input type="text"  name="linkEditGithub"placeholder="New Github Link"/>
-                        <button class ="linkbutton">Update</button> 
-                        </form>
-                        <form class ="linkinputsLinkedin" id="editLinkFormLinkedin">
-                            <input type="text"  name="linkEditLinkedin"placeholder="New LinkedLink"/>
-                        <button class ="linkbutton">Update</button> 
-                        </form>
-                </div>
-            </div>
-                 <!-- </div><img src="drawnpencil.png" class="linkopenNav"  onclick="linkopenNav()"></img>-->
-                 <button class="linkopenNav"  onclick="linkopenNav()">+</button> 
-                 <div class="icons">
-                    <img src="linkedinicon.png" class="linkedinicon" onclick="goLinkedin()">
-                    <img src="twittericon.png" class="twittericon"  onclick="goTwitter()">
-                    <img src="githubicon.png" class="githubicon" onclick="goGithub()">
-                    
-                 </div>   
-                 
-                <!-- <table class="linkContent" id="linkContent"></table> -->
-             
-        </h4>
-
-     
     </div>
+</a>
 
-        <!-- JS -->
+        <div class="container" id="container">
+          
 
-          <!-- tags -->
-            <!-- The core Firebase JS SDK is always required and must be listed first -->
-        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
-
-        <!-- TODO: Add SDKs for Firebase products that you want to use
-            https://firebase.google.com/docs/web/setup#available-libraries -->
-
-            <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
-
-
-        <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyC6CbJKFz2DRyvYoPrGafNaunl-zkaPdqE",
-            authDomain: "ccapdev-resume1.firebaseapp.com",
-            databaseURL: "https://ccapdev-resume1.firebaseio.com",
-            projectId: "ccapdev-resume1",
-            storageBucket: "ccapdev-resume1.appspot.com",
-            messagingSenderId: "459032712935",
-            appId: "1:459032712935:web:5892d2a5cd075f5a5a3442"
-        };
-        // Initialize Firebase
-        var defaultProject = firebase.initializeApp(firebaseConfig);
-
-        //whenever you interact with the database, we use this variable (db)
-        var db = firebase.firestore(); 
-
-        //put in an input thing
-        var email = "camille_cay@dlsu.edu.ph";
-        var password = "abcd1234";
-
-        firebase.auth().signInWithEmailAndPassword(email, password).then(function(user){
-            console.log("user signed in!");
-
-            var user = firebase.auth().currentUser;
-            if(user!=null) {
-                console.log(user.email);
-            }
-        }).catch(function(err){
-            if (err.code == "auth/wrong-password"){
-                alert("Wrong Password!")
-            }else{
-                alert(err.message);
-            }
-        })
-
-         //onlick then call a function then instide that function u can delete from firebase
-        // function deleteId(idName){
-
-        // }
-        //get doc number
+            <nav class="navibar" id="navibar"> 
+                <span id="educ"><a href="#educpage">Education</a></span>
+                <span id="org"><a href="#orgpage">Organizations</a></span>
+                <span id="work"><a href="#workpage">Works</a></span>
+                <span id="hobby"><a href="#hobbypage">Interests</a></span>
+                <span id="other"><a href="#otherpage">About</a></span>
+                <!-- <span id="contact"><a href="#linkpage">Contact</a></span> -->
+            </nav>
+         
+            <div class="frontpage" id="frontpage">
+                    <!-- <div class="beforename"> Hi! I'm</div>
+                        <div class="name">CAMILLE CAY </div> -->
+            <input type="checkbox" class="input"/>
+            <div class = "cay">
+                <h>CA</span><span><b>M</b></span><span><b>I</b></span><span><b>L</b></span><span><b>L</b></span><span><b>E</b></span><span><b>C</b></span><span><b>A</b></span><span>Y</span></h1>
+            </div>
+                         
+       
+                    <!-- <img src="intoPic.png" class="intoPic"> -->
+            </div>
         
-         function mkEducTextNode(text, className,idName) {
-            let educ_div = document.createElement("div");
-            educ_div.appendChild(document.createTextNode(text));
-            educ_div.classList.add(className);
-            if(!!idName)
-                educ_div.id = idName;
-            return educ_div;
-        }
+            <!-- h1-h6 for spaces in between pages -->
+            <!-- div for consistent -->
+            <h1 class="educpage" id="educpage" >
+                <div class="educheader">
+                    Education </div>
+                    <!-- inside bar -->
 
-        var eduContainer = document.getElementById("educContent");
-         
-        db.collection('educations').get().then(function(snapshot){
-            snapshot.forEach(function(doc){ //loop
-                let eduData = document.createElement("div");
-                eduData.classList.add("educData");
-                let degID = doc.data().degree.split(" ").join("").substring(0,17);
-                    eduData.appendChild(mkEducTextNode(doc.data().school, "Eschool"));
-                    eduData.appendChild(mkEducTextNode(doc.data().degree, "Edegree", degID));
-                    eduData.appendChild(mkEducTextNode(doc.data().year_start, "Eyear_start"));
-                    eduData.appendChild(mkEducTextNode(doc.data().year_end, "Eyear_end"));
-                    console.log(doc.id)
-                eduContainer.append(eduData);
-      
-            })
-        })
 
-        function mkOrgTextNode(text, className) {
-            let org_div = document.createElement("div");
-            org_div.appendChild(document.createTextNode(text));
-            org_div.classList.add(className);
-            // if(!!idName)
-            //     org_div.id = idName;
-            return org_div;
-        }
-
-        var orgContainer = document.getElementById("orgContent");
-         
-        db.collection('organizations').get().then(function(snapshot){
-            snapshot.forEach(function(doc){ 
-                let orgData = document.createElement("div");
-                orgData.classList.add("orgData");
-                    orgData.appendChild(mkOrgTextNode(doc.data().name, "Oname"));
-                    orgData.appendChild(mkOrgTextNode(doc.data().position, "Oposition"));
-                    orgData.appendChild(mkOrgTextNode(doc.data().year_start, "Oyear_start"));
-                    orgData.appendChild(mkOrgTextNode(doc.data().year_end, "Oyear_end"));
+                    <!-- what to clikc for bar to open -->
+                    <button type="submit"class="educopenNav" id="educopenNav" onclick ="educopenNav()">+</button>
                     
-                orgContainer.append(orgData);
-      
-            })
-        })
+                    <table class="educContent" id ="educContent"></table>
+            </h1>
 
-        function mkWorksTextNode(text, className) {
-            let work_div = document.createElement("div");
-            work_div.appendChild(document.createTextNode(text));
-            work_div.classList.add(className);
-            return work_div;
-        }
 
-        var workContainer = document.getElementById("workContent");
+
+            <h2 class="orgpage" id="orgpage">
+                <div class="orgheader">
+                    Organizations 
+                </div>
+               
+                    <table class="orgContent" id ="orgContent"></table> 
+            </h2>
+
+            <h3 class="workpage" id="workpage">
+                <div class="workheader">
+                    Works 
+                </div>
+
+           
+                    <table class="workContent" id="workContent"></table>
+            </h3>
+            <!-- interests -->
+            <h4 class="hobbypage" id="hobbypage">
+                <div class = "hobbyheader">Interests
+                </div>
+                
+                    <table class="hobbyContent" id="hobbyContent">
+                    </table>
+                
+                
+            </h4>
+
+           
+            <!-- about -->
+            <h5 class="otherpage" id="otherpage">
+            
+                
+                    <span class="introheader" id="introheader">Get to know me!</span>
+
+                        <table class="introContent" id="introContent">
+                       
+                        </table>
+                 
          
-        db.collection('works').get().then(function(snapshot){
-            snapshot.forEach(function(doc){ 
-                let workData = document.createElement("div");
-                workData.classList.add("workData");
-                    workData.appendChild(mkWorksTextNode(doc.data().name, "Wname"));
-                    workData.appendChild(mkWorksTextNode(doc.data().lab, "Wlab"));
-                    workData.appendChild(mkWorksTextNode(doc.data().year_start, "Wyear_start"));
-                    workData.appendChild(mkWorksTextNode(doc.data().year_end, "Wyear_end"));
-                workContainer.append(workData);
-      
-            })
-        })
-
-        function mkOthersTextNode(text, className) {
-            let other_div = document.createElement("div");
-            other_div.appendChild(document.createTextNode(text));
-            other_div.classList.add(className);
-            return other_div;
-        }
-
-        var otherContainer = document.getElementById("otherContent");
+             <!-- links -->
+             <div class="linkpage" id="linkpage" >
+                <!-- LINKS SIDEBAR -->
          
-        db.collection('others').get().then(function(snapshot){
-            snapshot.forEach(function(doc){ 
-                let otherData = document.createElement("div");
-                otherData.classList.add("otherData");
-                    otherData.appendChild(mkWorksTextNode(doc.data().value, "aboutme"));
-                    otherContainer.append(otherData);
+                <div id="curve" class="card">
+                    <div class="footer">
+                        <div class="connections">
+                            <div class="connection github" onclick="goGithub()"><div class="icon"></div></div>
+                            <div class="connection twitter"onclick="goTwitter()" ><div class="icon"></div></div>
+                            <div class="connection linkedin"  onclick="goLinkedin()"><div class="icon"></div></div>
+                        </div>
+                        <svg id="curve">
+                            <path id="p" d="M0,200 Q80,100 400,200 V150 H0 V50" transform="translate(0 300)" />
+                            <rect id="dummyRect" x="0" y="0" height="450" width="400"
+                          fill="transparent" />
+                            <!-- slide up-->
+                            <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,100 400,50 V150 H0 V50" fill="freeze" begin="dummyRect.mouseover" end="dummyRect.mouseout" dur="0.1s" id="bounce1" />
+                            <!-- slide up and curve in -->
+                            <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,0 400,50 V150 H0 V50" fill="freeze" begin="bounce1.end" end="dummyRect.mouseout" dur="0.15s" id="bounce2" />
+                            <!-- slide down and curve in -->
+                            <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,80 400,50 V150 H0 V50" fill="freeze" begin="bounce2.end" end="dummyRect.mouseout" dur="0.15s" id="bounce3" />
+                            <!-- slide down and curve out -->
+                            <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,45 400,50 V150 H0 V50" fill="freeze" begin="bounce3.end" end="dummyRect.mouseout" dur="0.1s" id="bounce4" />
+                            <!-- curve in -->
+                            <animate xlink:href="#p" attributeName="d" to="M0,50 Q80,50 400,50 V150 H0 V50" fill="freeze" begin="bounce4.end" end="dummyRect.mouseout" dur="0.05s" id="bounce5" />
+                
+                            <animate xlink:href="#p" attributeName="d" to="M0,200 Q80,100 400,200 V150 H0 V50" fill="freeze" begin="dummyRect.mouseout" dur="0.15s" id="bounceOut" />
+                        </svg>
+                        <div class="info">
+                            <div class="namecard">Camille Cay</div>
+                            <div class="job">Contact Me!</div>
+                        
+                        </div>
+                    </div>
                     
-                            
+                    <div class="card-blur"></div>
+                    
+            
+            </h5>
+
+  </div>
+        
 
 
-                    // <a href="https://twitter.com/camille_cay" target="_blank"><img src="twit.png" class="twit"></a>   
-                    // <a href="https://www.linkedin.com/in/camille-cay-8375811a2/" target="_blank"> <img src="linkedin.png" class="linkedin"></a>
-                    // <a href="https://github.com/camillecay" target="_blank">  <img src="github.png" class="github"></a> 
+
+
+            <!-- gets core functions of firebase -->
+              <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+            <!-- references the firestore service -->
+              <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+            <!-- references authentications -->
+              <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+    
+    
+          <script>
+            var firebaseConfig = {
+                apiKey: "AIzaSyC6CbJKFz2DRyvYoPrGafNaunl-zkaPdqE",
+                authDomain: "ccapdev-resume1.firebaseapp.com",
+                databaseURL: "https://ccapdev-resume1.firebaseio.com",
+                projectId: "ccapdev-resume1",
+                storageBucket: "ccapdev-resume1.appspot.com",
+                messagingSenderId: "459032712935",
+                appId: "1:459032712935:web:5892d2a5cd075f5a5a3442"
+            };
+            // Initialize the connection to Firebase backend
+            var defaultProject = firebase.initializeApp(firebaseConfig);
+            
+            // make auth and firebase references
+            var auth = firebase.auth();
+
+            //whenever you interact with the database, we use this variable (db)
+            var db = firebase.firestore(); 
+        </script>
+        <script src="indexjs.js"></script>
+
       
-            })
-        })
-
-     </script>
 
     </body>
 </html>
