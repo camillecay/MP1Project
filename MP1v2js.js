@@ -2,43 +2,43 @@
 
 //------------------------------ AUTHORIZATION --------------------------------------------
 
-function login(){
+// function login(){
 
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
+//     var email = document.getElementById("email").value;
+//     var password = document.getElementById("password").value;
 
     
-    firebase.auth().signInWithEmailAndPassword(email, password).then(function(user){
-        console.log("user signed in!");
-        document.getElementById("logincontainer").style.display = 'none';
-        document.getElementById("container").style.display = 'block';
-        document.getElementById("navibar").style.display = 'block';
-        document.getElementById("letterC").style.display = 'block';
+//     firebase.auth().signInWithEmailAndPassword(email, password).then(function(user){
+//         console.log("user signed in!");
+//         document.getElementById("logincontainer").style.display = 'none';
+//         document.getElementById("container").style.display = 'block';
+//         document.getElementById("navibar").style.display = 'block';
+//         document.getElementById("letterC").style.display = 'block';
 
-        var user = firebase.auth().currentUser;
-        if(user!=null) {
-            console.log(user.email);
-        }
-    }).catch(function(err){
-        if (err.code == "auth/wrong-password"){
-            alert("Wrong Password!");
-        }else{
-            alert(err.message);
-        }
-    })
-}
+//         var user = firebase.auth().currentUser;
+//         if(user!=null) {
+//             console.log(user.email);
+//         }
+//     }).catch(function(err){
+//         if (err.code == "auth/wrong-password"){
+//             alert("Wrong Password!");
+//         }else{
+//             alert(err.message);
+//         }
+//     })
+// }
 
-    document.getElementById("loginForm").addEventListener('click',function(e){
-        e.preventDefault();
-    });
+//     document.getElementById("loginForm").addEventListener('click',function(e){
+//         e.preventDefault();
+//     });
     
 
 
-function hideContent(){
-    document.getElementById("container").style.display = 'none';
-    document.getElementById("navibar").style.display = 'none';
-    document.getElementById("letterC").style.display = 'none';
-}
+// function hideContent(){
+//     document.getElementById("container").style.display = 'none';
+//     document.getElementById("navibar").style.display = 'none';
+//     document.getElementById("letterC").style.display = 'none';
+// }
 
 
 //----------------------------------------------END OF AUTHORIZATION --------------------------------------------
@@ -399,11 +399,26 @@ function hideContent(){
 
    //whenever user presses the button, this will happen
 
+
+   function goTwitter() {
+    db.collection('links').get().then(snapshot => {
+        snapshot.docs.forEach(doc => {
+            if(doc.id == 'twitter'){
+                console.log(typeof doc.data().twitter)
+            
+                window.open(doc.data().twitter, "");
+            }
+            else{
+                console.log("hehe ")
+            }
+        })
+    })
+}
     const editLinkFormTwitter = document.querySelector('#editLinkFormTwitter');   
     editLinkFormTwitter.addEventListener('click', (event) =>{
         event.preventDefault();
         db.collection('links').doc('twitter').update({
-            link: editLinkFormTwitter.linkEditTwitter.value,
+            twitter: editLinkFormTwitter.linkEditTwitter.value,
         }).then(function(){
             // renderLink();
             
@@ -411,38 +426,69 @@ function hideContent(){
         document.getElementById("linkEditTwitter").value = ''
         
     })
-    function goTwitter() {
-        window.open(editLinkFormTwitter.linkEditTwitter.value, "_blank");
+    
+
+
+    function goGithub() {
+        db.collection('links').get().then(snapshot => {
+            snapshot.docs.forEach(doc => {
+                if(doc.id == 'github'){
+                    console.log(typeof doc.data().github)
+                
+                    window.open(doc.data().github, "");
+                }
+                else{
+                    console.log("hehe ")
+                }
+            })
+        })
     }
+
 
     const editLinkFormGithub = document.querySelector('#editLinkFormGithub');
     editLinkFormGithub.addEventListener('click', (event) =>{
         event.preventDefault();
         db.collection('links').doc('github').update({
-            link: editLinkFormGithub.linkEditGithub.value,
+            github: editLinkFormGithub.linkEditGithub.value,
         }).then(function(){
             // renderLink();
         })
         document.getElementById("linkEditGithub").value = ''
     })
 
-    function goGithub() {
-        window.open(editLinkFormGithub.linkEditGithub.value, "_blank");
-    }
+   
+
+
+    function goLinkedin() {
+        db.collection('links').get().then(snapshot => {
+            snapshot.docs.forEach(doc => {
+                if(doc.id == 'linkedin'){
+                    console.log(typeof doc.data().linkedin)
+                
+                    window.open(doc.data().linkedin, "");
+                }
+                else{
+                    console.log("hehe ")
+                }
+            })})
+        
+        }
     
     const editLinkFormLinkedin = document.querySelector('#editLinkFormLinkedin');
     editLinkFormLinkedin.addEventListener('click', (event) =>{
         event.preventDefault();
+
+    
         db.collection('links').doc('linkedin').update({
-            link: editLinkFormLinkedin.linkEditLinkedin.value,
+            linkedin: editLinkFormLinkedin.linkEditLinkedin.value,
         }).then(function(){
             // renderLink();
         })
-        document.getElementById("linkEditLinkedin").value = ''
+        document.getElementById("linkEditLinkedin").value = ''   
     })
-  function goLinkedin() {
-        window.open(editLinkFormLinkedin.linkEditLinkedin.value, "_blank");
-    }
+   
+
+
 
 
 
